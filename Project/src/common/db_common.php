@@ -71,7 +71,7 @@
     }
     
     //------------------------------------
-    // 함수명       : detali_to_do_list
+    // 함수명       : detail_to_do_list
     // 기능         : 리스트의 상세 내용 출력
     // 파라미터     : array       $param_no
     // 리턴값       : 
@@ -118,13 +118,13 @@
     }
 
     // ---------------------------------
-    // 함수명	: list_update
+    // 함수명	: update_list
     // 기능		: DB update
-    // 파라미터	: Array     $param_arr
+    // 파라미터	: Array     &$param_arr
     // 리턴값	: INT
     // ---------------------------------
     
-    function list_update( &$param_arr )
+    function update_list( &$param_arr )
     {
         $sql = 
             " UPDATE "
@@ -143,14 +143,14 @@
 
         $arr_prepare = 
             array(
-                ":list_title" => $param_arr["list_title"]
-                ,":list_memo" => $param_arr["list_memo"]
-                ,":list_comp_flg" => $param_arr["list_comp_flg"]
-                ,":list_start_time" => $param_arr["list_start_time"]
-                ,":list_start_minute" => $param_arr["list_start_minute"]
-                ,":list_end_time" => $param_arr["list_end_time"]
-                ,":list_end_minute" => $param_arr["list_end_minute"]
-                ,":list_no" => $param_arr["list_no"]
+                ":list_title"           => $param_arr["list_title"]
+                ,":list_memo"           => $param_arr["list_memo"]
+                ,":list_comp_flg"       => $param_arr["list_comp_flg"]
+                ,":list_start_time"     => $param_arr["list_start_time"]
+                ,":list_start_minute"   => $param_arr["list_start_minute"]
+                ,":list_end_time"       => $param_arr["list_end_time"]
+                ,":list_end_minute"     => $param_arr["list_end_minute"]
+                ,":list_no"             => $param_arr["list_no"]
             );
 
         $conn = null;
@@ -175,5 +175,6 @@
 
         return $result_cnt;
     }
+
 
 ?>
