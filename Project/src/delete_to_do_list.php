@@ -1,6 +1,6 @@
 <?php
-define("DB_CON",$_SERVER["DOCUMENT_ROOT"]."/PHP_1STPJ/Project/");                           /* 정확한 파일의 루트가 정해지면 수정 */
-define("URL",DB_CON."src/db_common.php");
+define("DB_CON",$_SERVER["DOCUMENT_ROOT"]."/Project/src");                           /* 정확한 파일의 루트가 정해지면 수정 */
+define("URL",DB_CON."/common/db_common.php");
 include_once(URL);
 
 $rqt_mtd = $_SERVER["REQUEST_METHOD"];              /* 넘어오는 방식을 변수에 저장한다.(GET,POST) */
