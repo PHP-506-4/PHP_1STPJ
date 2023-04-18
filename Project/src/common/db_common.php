@@ -2,9 +2,9 @@
     //---------------------------------
     //함수명    : db_conn
     //기능      : php를 db에 연결
-    //파라미터  : array(속성)    $param_conn(파라미터 명)
+    //파라미터  : array(속성)   $param_conn(파라미터 명)
     //---------------------------------
-    
+
     function db_conn( &$param_conn )
     {
         $host = "localhost";
