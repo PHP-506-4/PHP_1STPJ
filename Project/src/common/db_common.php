@@ -116,4 +116,64 @@
         }
         return $result[0];
     }
+
+    // ---------------------------------
+    // 함수명	: list_update
+    // 기능		: DB update
+    // 파라미터	: Array     $param_arr
+    // 리턴값	: INT
+    // ---------------------------------
+    
+    function list_update( &$param_arr )
+    {
+        $sql = 
+            " UPDATE "
+            ." to_do_list_info "
+            ." SET "
+            ." list_title = :list_title "
+            ." ,list_memo = :list_memo "
+            ." ,list_comp_flg = :list_comp_flg "
+            ." ,list_start_time = :list_start_time "
+            ." ,list_start_minute = :list_start_minute "
+            ." ,list_end_time = :list_end_time "
+            ." ,list_end_minute = :list_end_minute "
+            ." WHERE "
+            ." list_no = :list_no "
+            ;
+
+        $arr_prepare = 
+            array(
+                ":list_title" => $param_arr["list_title"]
+                ,":list_memo" => $param_arr["list_memo"]
+                ,":list_comp_flg" => $param_arr["list_comp_flg"]
+                ,":list_start_time" => $param_arr["list_start_time"]
+                ,":list_start_minute" => $param_arr["list_start_minute"]
+                ,":list_end_time" => $param_arr["list_end_time"]
+                ,":list_end_minute" => $param_arr["list_end_minute"]
+                ,":list_no" => $param_arr["list_no"]
+            );
+
+        $conn = null;
+        try
+        {
+            db_conn( $conn );
+            $conn->beginTransaction();
+            $stmt = $conn->prepare( $sql );
+            $stmt->execute( $arr_prepare );
+            $result_cnt = $stmt->rowCount();
+            $conn->commit();
+        }
+        catch( Exception $e )
+        {
+            $conn->rollback();
+            return $e->getMessage();
+        }
+        finally
+        {
+            $conn = null;
+        }
+
+        return $result_cnt;
+    }
+
 ?>
