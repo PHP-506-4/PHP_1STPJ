@@ -31,5 +31,29 @@
         }
     }
 
-
+                // ---------------------------------
+                // 함수명	: list_delete
+                // 기능		: DB delete
+                // 파라미터	: Array       $list_no
+                // 리턴값	: 없음
+                // ---------------------------------
+                function list_delete(&$param_no)
+                {
+                    $sql =
+                        " DELETE FROM "
+                        ." to_do_list_info " //---------------테이블 명 정해지면 수정
+                        ." WHERE "
+                        ." list_no = :list_no" //--------------------리스트 넘버(넘어오는 값)이 정해지면 수정
+                        ;
+                    $arr_prepare =
+                            array(
+                                ":list_no" => $param_no["list_no"] //-----------------------리스트 넘버(넘어오는 값)이 정해지면 수정
+                            );
+                $conn=null;
+                db_conn($conn);
+                $conn->beginTransaction();
+                $stmt = $conn->prepare($sql);
+                $stmt->execute($arr_prepare);
+                $conn->commit();
+                }
 ?>
