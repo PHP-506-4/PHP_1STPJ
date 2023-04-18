@@ -69,4 +69,51 @@
             $conn = null;
         }
     }
+    
+    //------------------------------------
+    // 함수명       : detali_to_do_list
+    // 기능         : 리스트의 상세 내용 출력
+    // 파라미터     : array       $param_no
+    // 리턴값       : 
+    //------------------------------------
+    function select_to_do_list_no( &$param_no )
+    {
+        $sql =
+            " SELECT "
+            ."   list_title "
+            ."  ,list_start_time "
+            ."  ,list_start_minute "
+            ."  ,list_end_time "
+            ."  ,list_end_minute "
+            ."  ,list_memo "
+            ." FROM "
+            ."  to_do_list_info "
+            ." WHERE "
+            ."  list_no = :list_no "
+            ;
+
+        $arr_prepare =
+            array(
+                ":list_no"   => $param_no
+            );
+
+        $conn = null;
+
+        try
+        {
+            db_conn( $conn );
+            $stmt = $conn->prepare( $sql );
+            $stmt->execute( $arr_prepare );
+            $result = $stmt->fetchAll();
+        }
+        catch (Exception $e)
+        {
+            return $e->getMessage();
+        }
+        finally
+        {
+            $param_conn = null;
+        }
+        return $result[0];
+    }
 ?>
