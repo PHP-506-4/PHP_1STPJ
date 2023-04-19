@@ -80,7 +80,8 @@
     {
         $sql =
             " SELECT "
-            ."   list_title "
+            ."  list_no "
+            ."  ,list_title "
             ."  ,list_start_time "
             ."  ,list_start_minute "
             ."  ,list_end_time "
