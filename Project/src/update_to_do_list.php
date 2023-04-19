@@ -72,10 +72,10 @@ else
   </form>
   <button type="submit">수정</button>
   <button type="button">
-    <a href="detail_to_do_list.php?=<?php echo $result_info["list_no"]?>">취소</a>
+    <a href="detail_to_do_list.php?list_no=<?php echo $result_info["list_no"]?>">취소</a>
   </button>
   <button type="button">
-    <a href="delete_to_do_list.php=<?php echo $result_info["list_no"]?>">삭제</a>
+    <a href="delete_to_do_list.php?list_no=<?php echo $result_info["list_no"]?>">삭제</a>
   </button>
     
 
