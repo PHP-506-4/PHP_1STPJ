@@ -70,7 +70,9 @@ else
     <input type="radio" name="check" id="yet">
     <label for="yet">미완료</label>
   </form>
-  <button type="submit">수정</button>
+  <button type="submit">
+    <a href="detail_to_do_list.php?list_no=<?php echo $result_info["list_no"]?>">수정</a>
+  </button>
   <button type="button">
     <a href="detail_to_do_list.php?list_no=<?php echo $result_info["list_no"]?>">취소</a>
   </button>
