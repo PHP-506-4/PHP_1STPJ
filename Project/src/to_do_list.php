@@ -48,7 +48,7 @@ $result_list_info = select_list_info();
                 </td>
                 <td>
                 <?php
-                if($val["list_start_time"]!== null && $val["list_start_minute"]!== null)
+                if($val["list_start_time"]!== "" && $val["list_start_minute"]!== "")
                 {
                 echo $val["list_start_time"]." : ".$val["list_start_minute"];
                 }
@@ -56,7 +56,7 @@ $result_list_info = select_list_info();
                 </td>
                 <td>
                 <?php
-                if($val["list_end_time"]!== null && $val["list_end_minute"]!== null)
+                if($val["list_end_time"]!== "" && $val["list_end_minute"]!== "")
                 {
                 echo $val["list_end_minute"]." : ".$val["list_end_minute"];
                 }
