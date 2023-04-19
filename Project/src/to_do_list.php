@@ -46,10 +46,20 @@ $result_list_info = select_list_info();
                 <a href="detail_to_do_list.php?list_no=<?php echo $val["list_no"]?>"><?php echo $val["list_title"]?></a>
                 </td>
                 <td>
-                <?php echo $val["list_start_time"]." : ".$val["list_start_minute"]?>
+                <?php
+                if($val["list_start_time"]!== null && $val["list_start_minute"]!== null)
+                {
+                echo $val["list_start_time"]." : ".$val["list_start_minute"];
+                }
+                ?>
                 </td>
                 <td>
-                <?php echo $val["list_end_time"]." : ".$val["list_end_minute"]?>
+                <?php
+                if($val["list_end_time"]!== null && $val["list_end_minute"]!== null)
+                {
+                echo $val["list_end_minute"]." : ".$val["list_end_minute"];
+                }
+                ?>
                 </td>
             </tr>
         <?php
