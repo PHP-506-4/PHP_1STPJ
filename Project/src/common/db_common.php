@@ -71,12 +71,12 @@
     }
     
     //------------------------------------
-    // 함수명       : detail_to_do_list
-    // 기능         : 리스트의 상세 내용 출력
-    // 파라미터     : array       $param_no
-    // 리턴값       : 
+    // 함수명       : select_list
+    // 기능         : 해당 list_no 리스트의 상세 내용 출력
+    // 파라미터     : array         &$param_no
+    // 리턴값       : array/STRING $result[0]/ERRMSG
     //------------------------------------
-    function select_to_do_list_no( &$param_no )
+    function select_list( &$param_no ) // 0419 edit 함수명
     {
         $sql =
             " SELECT "
