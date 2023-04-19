@@ -353,4 +353,84 @@
         }
         return $result[0];
     }
+
+    //--------------------------------------
+    // 함수명   : select_list_all_cnt
+    // 기능     : 모든 리스트의 갯수를 센다
+    // 파라미터	: 없음
+    // 리턴값	: array/STRING      $result[0]/ERRMSG
+    //--------------------------------------
+    function select_list_all_cnt()
+    {
+        $sql =
+            " SELECT "
+            ."  COUNT(*) cnt "
+            ." FROM "
+            ."  to_do_list_info "
+            ;
+        
+        $conn = null;
+
+        try
+        {
+            db_conn( $conn );
+            $stmt = $conn->query( $sql );
+            $result = $stmt->fetchAll();
+        }
+        catch( Exception $e )
+        {
+            return $e->getMessage();
+        }
+        finally
+        {
+            $conn = null;
+        }
+
+        return $result[0]["cnt"];
+    }
+
+    //--------------------------------------
+    // 함수명   : select_list_comp_cnt
+    // 기능     : 수행완료한 리스트의 갯수를 센다
+    // 파라미터	: 없음
+    // 리턴값	: array/STRING      $result[0]/ERRMSG
+    //--------------------------------------
+    function select_list_comp_cnt()
+    {
+        $sql =
+            " SELECT "
+            ."  COUNT(*) cnt "
+            ." FROM "
+            ."  to_do_list_info "
+            ." WHERE "
+            ."  list_comp_flg = '1' "
+            ;
+        
+        $conn = null;
+
+        try
+        {
+            db_conn( $conn );
+            $stmt = $conn->query( $sql );
+            $result = $stmt->fetchAll();
+        }
+        catch( Exception $e )
+        {
+            return $e->getMessage();
+        }
+        finally
+        {
+            $conn = null;
+        }
+
+        return $result[0]["cnt"];
+    }
+
+    function comp_percent()
+    {
+        $result = select_list_comp_cnt() / select_list_all_cnt() * 100 ;
+        $result = intval($result);
+        return $result;
+    }
+
 ?>
