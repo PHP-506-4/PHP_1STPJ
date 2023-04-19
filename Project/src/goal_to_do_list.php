@@ -29,6 +29,7 @@
             font-size: 0;
             border-radius: 10px;
             overflow: hidden;
+            display: inline-block;
         }
         .per{
             width: 1%;
@@ -73,7 +74,7 @@
         }?>
     <a href="goal수정 페이지.php">EDIT</a>
     <br>
-    <span><?php echo $percent ?>%</span>
+    <span>달성도 <?php echo $percent ?>%</span>
     <div class=graph>
         <?php for ($i=0; $i <= $percent ; $i++)
         { ?>

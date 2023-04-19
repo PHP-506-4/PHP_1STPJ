@@ -50,7 +50,7 @@ $result_list_info = select_list_info();
                 <?php
                 if($val["list_start_time"]!== "" && $val["list_start_minute"]!== "")
                 {
-                echo $val["list_start_time"]." : ".$val["list_start_minute"];
+                echo sprintf("%02d",$val["list_start_minute"])." : ".sprintf("%02d",$val["list_start_minute"]);
                 }
                 ?>
                 </td>
@@ -58,7 +58,7 @@ $result_list_info = select_list_info();
                 <?php
                 if($val["list_end_time"]!== "" && $val["list_end_minute"]!== "")
                 {
-                echo $val["list_end_minute"]." : ".$val["list_end_minute"];
+                echo sprintf("%02d",$val["list_end_time"])." : ".sprintf("%02d",$val["list_end_minute"]);
                 }
                 ?>
                 </td>
