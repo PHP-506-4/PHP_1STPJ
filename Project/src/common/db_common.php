@@ -32,12 +32,12 @@
     }
 
     // ---------------------------------
-    // 함수명	: list_delete
+    // 함수명	: delete_list
     // 기능		: DB delete
-    // 파라미터	: Array       $list_no
+    // 파라미터	: Array       &$param_no
     // 리턴값	: 없음
     // ---------------------------------
-    function list_delete(&$param_no)
+    function delete_list(&$param_no)
     {
         $sql =
             " DELETE FROM "
