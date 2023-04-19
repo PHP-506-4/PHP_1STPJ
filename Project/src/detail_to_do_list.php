@@ -1,11 +1,12 @@
 <?php
     define( "SRC_ROOT", $_SERVER["DOCUMENT_ROOT"]."/Project/src/" );
     define( "URL_DB", SRC_ROOT."common/db_common.php" );
+    define( "HEADER", SRC_ROOT."header_to_do_list.php");
     include_once( URL_DB );
 
     $arr_get = $_GET; // GET Request Parameter 획득
 
-    $result_info = ( select_list($arr_get["list_no"]) ); // DB에서 리스트 상세 정보 획득
+    $result_info = ( select_list_no($arr_get["list_no"]) ); // DB에서 리스트 상세 정보 획득
 
 ?>
 <!DOCTYPE html>
@@ -18,6 +19,7 @@
     <!-- <link rel="stylesheet" href="공통css파일주소"> 파일 나중에 추가되면 활성화 시킬 예정 -->
 </head>
 <body>
+    <?php include_once( HEADER ); ?>
     <div class="con">
         <p><?php echo $result_info["list_title"]; ?></p>
         <p><?php echo $result_info["list_start_time"]; ?>:</p>
@@ -25,8 +27,8 @@
         <p><?php echo $result_info["list_end_time"]; ?>:</p>
         <p><?php echo $result_info["list_end_minute"]; ?></p>
         <p><?php echo $result_info["list_memo"]; ?></p>
-        <a href="수정페이지?list_no=".<?php echo $result_info["list_no"]; ?>>수정</a>
-        <a href="리스트페이지">리스트로</a>
+        <a href="update_to_do_list.php?list_no=".<?php echo $result_info["list_no"]; ?>>수정</a>
+        <a href="to_do_list.php">리스트로</a>
     </div>
 </body>
 </html>
