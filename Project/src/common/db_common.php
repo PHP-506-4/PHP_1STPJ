@@ -71,12 +71,12 @@
     }
     
     //------------------------------------
-    // 함수명       : select_list
+    // 함수명       : select_list_no
     // 기능         : 해당 list_no 리스트의 상세 내용 출력
     // 파라미터     : array         &$param_no
     // 리턴값       : array/STRING $result[0]/ERRMSG
     //------------------------------------
-    function select_list( &$param_no ) // 0419 edit 함수명
+    function select_list_no( &$param_no ) // 0419 edit 함수명
     {
         $sql =
             " SELECT "
