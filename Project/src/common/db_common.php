@@ -221,7 +221,7 @@
     // 함수명	: select_goal_info
     // 기능		: 페이지에 표시할 목표 불러옴
     // 파라미터	: 없음
-    // 리턴값	: 없음
+    // 리턴값	: array/STRING      $result/$result, ERRMSG
     // ---------------------------------
 
     function select_goal_info()
@@ -251,7 +251,14 @@
             $conn = null;
         }
 
-        return $result[0];
+        if ( empty($result) )
+        {
+            $result = "";
+        }
+        else {
+            $result = $result[0];
+        }
+        return $result;
     }
 
         

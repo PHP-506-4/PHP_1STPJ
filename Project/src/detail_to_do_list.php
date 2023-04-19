@@ -22,8 +22,9 @@
     <?php include_once( HEADER ); ?>
     <div class="con">
         <p><?php echo $result_info["list_title"]; ?></p>
+        <span>공부 시간</span>
         <span><?php echo sprintf('%02d',$result_info["list_start_time"]); ?>:</span>
-        <span><?php echo sprintf('%02d',$result_info["list_start_minute"]); ?>~</span>
+        <span><?php echo sprintf('%02d',$result_info["list_start_minute"]); ?> ~ </span>
         <span><?php echo sprintf('%02d',$result_info["list_end_time"]); ?>:</span>
         <span><?php echo sprintf('%02d',$result_info["list_end_minute"]); ?></span>
         <p><?php echo $result_info["list_memo"]; ?></p>

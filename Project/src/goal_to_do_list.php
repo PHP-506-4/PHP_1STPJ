@@ -3,9 +3,19 @@
     define( "URL_DB", SRC_ROOT."common/db_common.php" );
     include_once( URL_DB );
     $result = select_goal_info();
-    $goal_date = $result["goal_date"];
-    $d_day = floor((strtotime($goal_date) - strtotime(date('y-m-d'))) / 86400 );
-    $d_day = intval($d_day);
+    $goal_date = "";
+    $g_title = "";
+
+    if ( empty($result) ) {
+        $g_title = "목표를 정해주세요";
+        $d_day ="";
+    }
+    else {
+        $g_title = $result["goal_title"];
+        $goal_date = $result["goal_date"];
+        $d_day = floor((strtotime($goal_date) - strtotime(date('y-m-d'))) / 86400 );
+        $d_day = intval($d_day);
+    }
 
     $percent = comp_percent()
 ?>
@@ -40,20 +50,21 @@
     </style>
 </head>
 <body>
+    <span><?php echo $g_title?></span>
     <?php
         $result_d = "";
         if ( $d_day === 0 )
         {
             $result_d = "D-DAY";
             ?>
-            <span><?php echo $result["goal_title"]?></span>
+
             <span class=d_day><?php echo $result_d?></span>
         <?php }
         else if( $d_day === 1 )
         {
             $result_d = "D-".$d_day;
             ?>
-            <span><?php echo $result["goal_title"]?></span>
+
             <span class=d_day><?php echo $result_d?></span>
         <?php
         }
@@ -61,14 +72,14 @@
         {
             $result_d = "D-".$d_day;
             ?>
-            <span><?php echo $result["goal_title"]?></span>
+
             <span><?php echo $result_d?></span>
             <?php
         }
         else
         {
             $result_d = substr( $goal_date, 5 );?>
-            <span class=g_past><?php echo $result["goal_title"]?></span>
+
             <span class=d_past><?php echo $result_d?></span>
             <?php
         }?>
