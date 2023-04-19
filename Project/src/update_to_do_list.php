@@ -52,7 +52,8 @@ else
     <input type="hidden" name="list_no" value="<?php echo $result_info["list_no"]?>"> <!-- list_no 화면에 표시할 필요는 없지만 해당 번호의 정보를 가져와야함으로 hidden을 사용해줌 -->
     <br>
     <!-- 제목 -->
-    <input type="text" name="list_title" value="<?php echo $result_info["list_title"]?>" required>
+    <label for="title">제목 </label>
+    <input type="text" name="list_title" id="title" value="<?php echo $result_info["list_title"]?>" required>
     <br>
     <!-- 시작 시간 -->
     <label for="start_time">시작 시간</label> 
@@ -64,6 +65,7 @@ else
     <input type="number" name="list_end_minute" id="end_min" min=00 max=59 value="<?php echo $result_info['list_end_minute']?>">
     <br>
     <!-- 메모 칸 CSS에서 resize:none 해주기! -->
+    <label for="memo">메모 :</label>
     <textarea name="list_memo" id="memo" cols="30" rows="10" placeholder="메모"><?php echo $result_info["list_memo"]?></textarea>
     <br>
     <!-- 라디오 버튼 -->
@@ -73,14 +75,8 @@ else
     <label for="yet">미완료</label>
     <br>
     <button type="submit">수정</button>
-    <button type="button">
       <a href="detail_to_do_list.php?list_no=<?php echo $result_info["list_no"]?>">취소</a>
-    </button>
-    <button type="button">
       <a href="delete_to_do_list.php?list_no=<?php echo $result_info["list_no"]?>">삭제</a>
-    </button>
   </form>
-    
-
 </body>
 </html>
