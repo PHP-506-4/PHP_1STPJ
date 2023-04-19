@@ -8,7 +8,7 @@ $http_method = $_SERVER["REQUEST_METHOD"];
 
 if($http_method === "GET") // GET값 받은거
 {
-  $list_no = 1; // Ask ) 0, 1 숫자 상관 없나??
+  $list_no = 1; 
   if( array_key_exists( "list_no", $_GET ) )
   {
     $list_no = $_GET["list_no"];
@@ -55,15 +55,15 @@ else
     <input type="text" name="list_title" value="<?php echo $result_info["list_title"]?>" required>
     <br>
     <!-- 시작 시간 -->
-    <label for="start_time">시작 시간</label> <!-- Ask ) name 같은 이름으로 해서 같이 값 넘겨주는게 맞는지?? -->
-    <input  type="number" name="list_start_time" id="start_time" min=00 max=23 value="<?php echo $result_info['list_start_time']?>">
+    <label for="start_time">시작 시간</label> 
+    <input  type="number" name="list_start_time" id="start_time" min=00 max=23 value="<?php echo $result_info['list_start_time']?>"> :
     <input  type="number" name="list_start_minute" id="start_min" min=00 max=59 value="<?php echo $result_info['list_start_minute']?>">
     <!-- 종료 시간 -->
     <label for="end_time">종료 시간</label>
-    <input type="number" name="list_end_time" id="end_time" min=00 max=23 value="<?php echo $result_info['list_end_time']?>">
+    <input type="number" name="list_end_time" id="end_time" min=00 max=23 value="<?php echo $result_info['list_end_time']?>"> :
     <input type="number" name="list_end_minute" id="end_min" min=00 max=59 value="<?php echo $result_info['list_end_minute']?>">
     <br>
-    <!-- 메모 칸 -->
+    <!-- 메모 칸 CSS에서 resize:none 해주기! -->
     <textarea name="list_memo" id="memo" cols="30" rows="10" placeholder="메모"><?php echo $result_info["list_memo"]?></textarea>
     <br>
     <!-- 라디오 버튼 -->
