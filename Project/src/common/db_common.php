@@ -176,5 +176,80 @@
         return $result_cnt;
     }
 
+// ---------------------------------
+    // 함수명	: select_list_info
+    // 기능		: 페이지에 표시할 리스트 불러옴
+    // 파라미터	: 없음
+    // 리턴값	: 없음
+    // ---------------------------------
 
+    function select_list_info()
+    {
+        $sql =
+		" SELECT "
+		." 	list_no "
+		." 	,list_title "
+		." 	,list_comp_flg "
+		." 	,list_start_time "
+		." 	,list_start_minute "
+		." 	,list_end_time "
+		." 	,list_end_minute "
+		." FROM "
+		." 	to_do_list_info "
+		;
+
+	$conn = null;
+	try
+	{
+		db_conn( $conn );
+		$stmt = $conn->prepare( $sql );
+		$stmt->execute();
+		$result = $stmt->fetchAll();
+	}
+	catch( Exception $e )
+	{
+		return $e->getMessage();
+	}
+	finally
+	{
+		$conn = null;
+	}
+	return $result;
+}
+    // ---------------------------------
+    // 함수명	: select_goal_info
+    // 기능		: 페이지에 표시할 목표 불러옴
+    // 파라미터	: 없음
+    // 리턴값	: 없음
+    // ---------------------------------
+
+    function select_goal_info()
+    {
+            $sql =
+            " SELECT "
+            ." 	goal_title "
+            ." 	,goal_date "
+            ." FROM "
+            ." 	goal_info "
+            ;
+
+        $conn = null;
+        try
+        {
+            db_conn( $conn );
+            $stmt = $conn->prepare( $sql );
+            $stmt->execute();
+            $result = $stmt->fetchAll();
+        }
+        catch( Exception $e )
+        {
+            return $e->getMessage();
+        }
+        finally
+        {
+            $conn = null;
+        }
+
+        return $result;
+    }
 ?>

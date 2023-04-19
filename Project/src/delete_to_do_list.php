@@ -7,12 +7,12 @@ $rqt_mtd = $_SERVER["REQUEST_METHOD"];              /* 넘어오는 방식을 �
 if($rqt_mtd === "GET")                              /* 만약에 GET이면 실행한다. */
 {
     $list_no = $_GET["list_no"];
-    list_delete($list_no);
+    delete_list($list_no);
 }
 else                                                /* 만약에 POST일경우 실행한다. */
 {
     $list_no = $_POST["list_no"];
-    list_delete($list_no);
+    delete_list($list_no);
 }
 
 ?>
