@@ -1,19 +1,19 @@
 <?php
-define( "SRC_ROOT", $_SERVER["DOCUMENT_ROOT"]."/Project/src/");
-define( "URL_DB", SRC_ROOT."common/db_common.php");
+define( "SRC_ROOT", $_SERVER["DOCUMENT_ROOT"]."/Project/src/" );
+define( "URL_DB", SRC_ROOT."common/db_common.php" );
+define( "URL_HEADER", SRC_ROOT."header_to_do_list.php" );
 include_once( URL_DB ); // db_common.php 불러옴
 
 $http_method = $_SERVER["REQUEST_METHOD"];
 
 if($http_method === "GET") // GET값 받은거
 {
-  $list_no = 0; // Ask ) 0, 1 숫자 상관 없나??
+  $list_no = 1; // Ask ) 0, 1 숫자 상관 없나??
   if( array_key_exists( "list_no", $_GET ) )
   {
     $list_no = $_GET["list_no"];
   }
-  $result_info = select_to_do_list_no( $list_no ); 
-  // Todo ) detail 함수명 결정되면 fix 하기! 
+  $result_info = select_list_no( $list_no ); 
 }
 else
 {
@@ -46,6 +46,8 @@ else
   <title>리스트 수정 페이지</title>
 </head>
 <body>
+  <!-- 헤더 -->
+  <?php include_once( URL_HEADER ); ?>
   <form action="" method="post">
     <!-- hidden 게시글 번호 -->
     <input type="hidden" name="list_no" value="<?php echo $result_info["list_no"]?>"> <!-- list_no 화면에 표시할 필요는 없지만 해당 번호의 정보를 가져와야함으로 hidden을 사용해줌 -->
@@ -60,7 +62,7 @@ else
     <input type="text" name="list_end_time" id"end_min" value="<?php echo $result_info["list_end_minute"]?>">
     <br>
     <!-- 메모 칸 -->
-    <textarea name="memo" id="memo" cols="30" rows="10"></textarea>
+    <textarea name="memo" id="memo" cols="30" rows="10" placeholder="메모"></textarea>
     <br>
     <!-- 라디오 버튼 -->
     <input type="radio" name="check" id="done">
@@ -68,7 +70,13 @@ else
     <input type="radio" name="check" id="yet">
     <label for="yet">미완료</label>
   </form>
-  
+  <button type="submit">수정</button>
+  <button type="button">
+    <a href="detail_to_do_list.php?=<?php echo $result_info["list_no"]?>">취소</a>
+  </button>
+  <button type="button">
+    <a href="delete_to_do_list.php=<?php echo $result_info["list_no"]?>">삭제</a>
+  </button>
     
 
 </body>
