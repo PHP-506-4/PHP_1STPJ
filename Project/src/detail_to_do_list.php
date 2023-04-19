@@ -22,10 +22,10 @@
     <?php include_once( HEADER ); ?>
     <div class="con">
         <p><?php echo $result_info["list_title"]; ?></p>
-        <span><?php echo $result_info["list_start_time"]; ?>:</span>
-        <span><?php echo $result_info["list_start_minute"]; ?>~</span>
-        <span><?php echo $result_info["list_end_time"]; ?>:</span>
-        <span><?php echo $result_info["list_end_minute"]; ?></span>
+        <span><?php echo sprintf('%02d',$result_info["list_start_time"]); ?>:</span>
+        <span><?php echo sprintf('%02d',$result_info["list_start_minute"]); ?>~</span>
+        <span><?php echo sprintf('%02d',$result_info["list_end_time"]); ?>:</span>
+        <span><?php echo sprintf('%02d',$result_info["list_end_minute"]); ?></span>
         <p><?php echo $result_info["list_memo"]; ?></p>
         <a href="update_to_do_list.php?list_no=<?php echo $result_info["list_no"];?>">수정</a>
         <a href="to_do_list.php">리스트로</a>
