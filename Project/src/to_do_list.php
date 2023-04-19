@@ -15,7 +15,7 @@ $result_list_info = select_list_info();
     <title>to do list</title>
 </head>
 <body>
-    <p><?php $result_goal_info["goal_title"]?></p>
+    <p><?php echo $result_goal_info["goal_title"]?></p>
     <table>
         <?php
         foreach ($result_list_info as $val)
@@ -30,20 +30,20 @@ $result_list_info = select_list_info();
                 $comp_flg = $val["list_comp_flg"];
                 if($comp_flg === '0' )
                 {
-                ?>
-                <img src="" alt="">
+                    ?>
+                    <img src="" alt="">
                 <?php
                 }
                 else
                 {
-                ?>
-                <img src="" alt="">
+                    ?>
+                    <img src="" alt="">
                 <?php
                 }
                 ?>
                 </td>
                 <td>
-                <?php echo $val["list_title"]?>
+                <a href="detail_to_do_list.php?list_no=<?php echo $val["list_no"]?>"><?php echo $val["list_title"]?></a>
                 </td>
                 <td>
                 <?php echo $val["list_start_time"]." : ".$val["list_start_minute"]?>

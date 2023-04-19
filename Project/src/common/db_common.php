@@ -250,6 +250,6 @@
             $conn = null;
         }
 
-        return $result;
+        return $result[0];
     }
 ?>
