@@ -17,7 +17,7 @@
         $d_day = intval($d_day);
     }
 
-    $percent = comp_percent()
+    $percent = comp_percent();
 ?>
 <!DOCTYPE html>
 <html lang="ko">

@@ -3,15 +3,19 @@ define( "SRC_ROOT", $_SERVER["DOCUMENT_ROOT"]."/Project/src/" );
 define( "URL_DB", SRC_ROOT."common/db_common.php" );
 define( "URL_HEADER", SRC_ROOT."header_to_do_list.php" );
 include_once( URL_DB );
-$result = select_goal_info();
 $rqt_mtd = $_SERVER["REQUEST_METHOD"];
-if ($rqt_mtd === "POST")
-{
-    $result_post = $_POST;
-    update_goal($result_post);
-    header("Location:to_do_list.php");
+
+if ($rqt_mtd === "POST") {
+    $arr_post = $_POST;
+    update_goal($arr_post);
+    header("Location: to_do_list.php");
     exit();
 }
+else
+{
+    $result = select_goal_info();
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="ko">
