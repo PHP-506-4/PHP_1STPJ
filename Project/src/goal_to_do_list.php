@@ -29,7 +29,6 @@
             font-size: 0;
             border-radius: 10px;
             overflow: hidden;
-            margin: auto;
         }
         .per{
             width: 1%;

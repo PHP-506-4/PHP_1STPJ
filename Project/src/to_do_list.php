@@ -1,6 +1,7 @@
 <?php
 define("DB_CON",$_SERVER["DOCUMENT_ROOT"]."/Project/src");
 define("URL",DB_CON."/common/db_common.php");
+define("GOAL",DB_CON."/goal_to_do_list.php");
 include_once(URL);
 
 $result_goal_info = select_goal_info();
@@ -15,7 +16,7 @@ $result_list_info = select_list_info();
     <title>to do list</title>
 </head>
 <body>
-    <p><?php echo $result_goal_info["goal_title"]?></p>
+    <?php include_once( GOAL )?>
     <table>
         <?php
         foreach ($result_list_info as $val)
