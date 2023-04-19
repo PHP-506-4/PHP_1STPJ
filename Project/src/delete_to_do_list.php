@@ -1,10 +1,12 @@
 <?php
 define("DB_CON",$_SERVER["DOCUMENT_ROOT"]."/Project/src");                           /* 정확한 파일의 루트가 정해지면 수정 */
 define("URL",DB_CON."/common/db_common.php");
+define( "URL_HEADER", DB_CON."/header_to_do_list.php" );
 include_once(URL);
 
 $list_no = $_GET["list_no"];
 
+$result_title = select_list_no( $list_no );
 
 ?>
 
@@ -18,8 +20,8 @@ $list_no = $_GET["list_no"];
     <title>삭제 페이지</title>
 </head>
 <body>
-                                                                                <!-- 헤더 영역이 정해지면 include_once로 설정  -->
-    <p>리스트 제목</p>                                                          <!-- PK로 넘어오는 값을 받아서 해당 PK의 제목을 화면에 표시 -->
+<?php include_once(URL_HEADER);?>                                                            <!-- 헤더 영역이 정해지면 include_once로 설정  -->
+    <p><?php echo $result_title["list_title"] ?></p>                                                          <!-- PK로 넘어오는 값을 받아서 해당 PK의 제목을 화면에 표시 -->
     <p>정보를 완전히 삭제합니다.<br>동의 하시면 확인을 눌러 주세요.</p>                     <!-- 주의 메세지 -->
     <button type="button">
         <a href=" sub_delete.php?list_no=<?php echo $list_no ?>" >
