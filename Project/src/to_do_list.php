@@ -32,13 +32,13 @@ $result_list_info = select_list_info();
                 if($comp_flg === '0' )
                 {
                     ?>
-                    <img src="" alt="">
+                    <img src="./img/check.png" alt="체크 안함">
                 <?php
                 }
                 else
                 {
                     ?>
-                    <img src="" alt="">
+                    <img src="./img/checked.png" alt="체크 함">
                 <?php
                 }
                 ?>

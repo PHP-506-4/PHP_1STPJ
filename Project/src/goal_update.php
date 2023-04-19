@@ -25,9 +25,9 @@ if ($rqt_mtd === "POST")
 <?php include_once(URL_HEADER);?>
     <form action="goal_update.php" method="post">
         <label for="goal_title">목표</label>
-        <input type="text" name="goal_title" id="goal_title" value="<?php echo $result["goal_title"]?>">
+        <input type="text" name="goal_title" id="goal_title" required value="<?php echo $result["goal_title"]?>">
         <label for="goal_date">날짜</label>
-        <input type="date" name="goal_date" id="goal_date" value="<?php echo $result["goal_date"]?>">
+        <input type="date" name="goal_date" id="goal_date" required value="<?php echo $result["goal_date"]?>">
         <br>
         <button type="submit">수정</button>
         <button type="button"><a href="to_do_list.php">취소</a></button>
