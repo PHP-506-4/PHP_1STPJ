@@ -439,5 +439,47 @@
         $result = intval($result);
         return $result;
     }
+    // ---------------------------------
+    // 함수명	: update_goal
+    // 기능		: DB update
+    // 파라미터	: Array     &$param_arr
+    // 리턴값	: INT
+    // ---------------------------------
+    
+    function update_goal( &$param_arr )
+    {
+        $sql = 
+            " UPDATE "
+            ." goal_info "
+            ." SET "
+            ." goal_title = :goal_title "
+            ." ,goal_date = :goal_date "
+            ;
+
+        $arr_prepare = 
+            array(
+                ":goal_title" => $param_arr["goal_title"]
+                ,":goal_date" => $param_arr["goal_date"]
+            );
+
+        $conn = null;
+        try
+        {
+            db_conn( $conn );
+            $conn->beginTransaction();
+            $stmt = $conn->prepare( $sql );
+            $stmt->execute( $arr_prepare );
+            $conn->commit();
+        }
+        catch( Exception $e )
+        {
+            $conn->rollback();
+            return $e->getMessage();
+        }
+        finally
+        {
+            $conn = null;
+        }
+    }
 
 ?>

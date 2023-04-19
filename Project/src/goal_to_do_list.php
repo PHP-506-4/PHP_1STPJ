@@ -83,7 +83,7 @@
             <span class=d_past><?php echo $result_d?></span>
             <?php
         }?>
-    <a href="goal수정 페이지.php">EDIT</a>
+    <a href="goal_update.php">EDIT</a>
     <br>
     <span>달성도 <?php echo $percent ?>%</span>
     <div class=graph>
