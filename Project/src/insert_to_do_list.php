@@ -36,14 +36,14 @@
             <br>
 
             <label for="list_start_time">시작시간</label>
-            <input type="text" name="list_start_time" class="list_start_time" id="list_start_time">:
-            <input type="text" name="list_start_minute" class="list_start_minute" id="list_start_minute">
+            <input type="number" name="list_start_time" class="list_start_time" id="list_start_time" min="0" max="23">:
+            <input type="number" name="list_start_minute" class="list_start_minute" id="list_start_minute" min="0" max="59">
 
             <br>
 
             <label for="list_end_time">종료시간</label>
-            <input type="text" name="list_end_time" class="list_end_time" id="list_end_time">:
-            <input type="text" name="list_end_minute" class="list_end_minute" id="list_end_minute">
+            <input type="number" name="list_end_time" class="list_end_time" id="list_end_time" min="0" max="23">:
+            <input type="number" name="list_end_minute" class="list_end_minute" id="list_end_minute" min="0" max="59">
             <br>
 
             <input type="text" name="list_memo" class="list_memo">
