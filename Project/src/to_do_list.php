@@ -51,10 +51,11 @@ $result_list_info = select_list_info();
                 if($val["list_start_time"]!== "" && $val["list_start_minute"]!== "")
                 {
                 echo sprintf("%02d",$val["list_start_minute"])." : ".sprintf("%02d",$val["list_start_minute"]);
+                ?>
+                <span> ~ </span>
+                <?php
                 }
                 ?>
-                </td>
-                <td>
                 <?php
                 if($val["list_end_time"]!== "" && $val["list_end_minute"]!== "")
                 {
