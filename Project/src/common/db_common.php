@@ -253,4 +253,104 @@
 
         return $result[0];
     }
+
+        
+    //------------------------------------
+    // 함수명       : insert_to_do_list
+    // 기능         : 리스트의 값 추가
+    // 파라미터     : array       $param_no
+    // 리턴값       : 
+    //------------------------------------
+    function insert_to_do_list_info( &$param_arr )
+    {
+        $sql =
+            " INSERT INTO "
+            ." to_do_list_info( "
+            ." list_title "
+            ." , list_memo "
+            ." , list_start_time "
+            ." , list_start_minute "
+            ." , list_end_time "
+            ." , list_end_minute "
+            ." ) "
+            ." VALUES( "
+            ." :list_title "
+            ." , :list_memo "
+            ." , :list_start_time "
+            ." , :list_start_minute "
+            ." , :list_end_time "
+            ." , :list_end_minute "
+            ." ) "
+            ;
+
+        $arr_prepare =
+        array(
+            ":list_title" => $param_arr["list_title"]
+            , ":list_memo" => $param_arr["list_memo"]
+            , ":list_start_time" => $param_arr["list_start_time"]
+            , ":list_start_minute" => $param_arr["list_start_minute"]
+            , ":list_end_time" => $param_arr["list_end_time"]
+            , ":list_end_minute" => $param_arr["list_end_minute"]
+        );
+
+        $conn = null;
+        try
+        {
+            db_conn( $conn );
+            $conn->beginTransaction();
+            $stmt = $conn->prepare( $sql );
+            $stmt->execute( $arr_prepare );
+            $result_cnt = $stmt->rowCount();
+            $conn->commit();
+        }
+        catch ( exception $e)
+        {
+            $conn->rollback();
+            return $e->getMessage();
+        }
+        finally
+        {
+            $conn = null;
+        }
+        return $result_cnt;
+    }
+
+    //------------------------------------
+    // 함수명       : select_to_do_list_limit
+    // 기능         : 리스트의 값중 상단 1개만 불러오기 위해 사용
+    // 파라미터     : 없음
+    // 리턴값       : array
+    //------------------------------------
+    function select_to_do_list_limit ( )
+    {
+        $sql = 
+            " SELECT "
+            ." list_no "
+            ." from "
+            ." to_do_list_info "
+            ." order by "
+            ." list_no "
+            ." desc "
+            ." limit "
+            ." 1 "
+            ;
+
+        $conn = null;
+        try
+        {
+            db_conn( $conn );
+            $stmt = $conn->prepare( $sql );
+            $stmt->execute();
+            $result = $stmt->fetchAll();
+        }
+        catch( Exception $e )
+        {
+            return $e->getMessage();
+        }
+        finally
+        {
+            $conn = null;
+        }
+        return $result[0];
+    }
 ?>
