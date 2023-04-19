@@ -8,7 +8,7 @@ $http_method = $_SERVER["REQUEST_METHOD"];
 
 if($http_method === "GET") // GET값 받은거
 {
-  $list_no = 1; // Ask ) 0, 1 숫자 상관 없나??
+  $list_no = 0; // Ask ) 0, 1 숫자 상관 없나??
   if( array_key_exists( "list_no", $_GET ) )
   {
     $list_no = $_GET["list_no"];
@@ -34,7 +34,6 @@ else
   header("Location: detail_to_do_list.php?list_no=".$arr_post["list_no"]); // 수정 완료 후 해당 게시글 번호의 detail 페이지로 넘어가기
   exit();
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -55,30 +54,29 @@ else
     <!-- 시작 시간 -->
     <label for="start_time">시작 시간</label> <!-- Ask ) name 같은 이름으로 해서 같이 값 넘겨주는게 맞는지?? -->
     <input type="text" name="list_start_time" id="start_time" value="<?php echo $result_info["list_start_time"]?>">
-    <input type="text" name="list_start_time" id="start_min" value="<?php echo $result_info["list_start_minute"]?>">
+    <input type="text" name="list_start_minute" id="start_min" value="<?php echo $result_info["list_start_minute"]?>">
     <!-- 종료 시간 -->
     <label for="end_time">종료 시간</label>
     <input type="text" name="list_end_time" id="end_time" value="<?php echo $result_info["list_end_time"]?>">
-    <input type="text" name="list_end_time" id"end_min" value="<?php echo $result_info["list_end_minute"]?>">
+    <input type="text" name="list_end_minute" id="end_min" value="<?php echo $result_info["list_end_minute"]?>">
     <br>
     <!-- 메모 칸 -->
-    <textarea name="memo" id="memo" cols="30" rows="10" placeholder="메모"></textarea>
+    <textarea name="list_memo" id="memo" cols="30" rows="10" placeholder="메모"></textarea>
     <br>
     <!-- 라디오 버튼 -->
-    <input type="radio" name="check" id="done">
+    <input type="radio" name="list_comp_flg" id="done" value=1 >
     <label for="done">완료</label>
-    <input type="radio" name="check" id="yet">
+    <input type="radio" name="list_comp_flg" id="yet" value=0 >
     <label for="yet">미완료</label>
+    <br>
+    <button type="submit">수정</button>
+    <button type="button">
+      <a href="detail_to_do_list.php?list_no=<?php echo $result_info["list_no"]?>">취소</a>
+    </button>
+    <button type="button">
+      <a href="delete_to_do_list.php?list_no=<?php echo $result_info["list_no"]?>">삭제</a>
+    </button>
   </form>
-  <button type="submit">
-    <a href="detail_to_do_list.php?list_no=<?php echo $result_info["list_no"]?>">수정</a>
-  </button>
-  <button type="button">
-    <a href="detail_to_do_list.php?list_no=<?php echo $result_info["list_no"]?>">취소</a>
-  </button>
-  <button type="button">
-    <a href="delete_to_do_list.php?list_no=<?php echo $result_info["list_no"]?>">삭제</a>
-  </button>
     
 
 </body>
