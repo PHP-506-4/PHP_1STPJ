@@ -3,16 +3,8 @@ define("DB_CON",$_SERVER["DOCUMENT_ROOT"]."/Project/src");                      
 define("URL",DB_CON."/common/db_common.php");
 include_once(URL);
 
-$rqt_mtd = $_SERVER["REQUEST_METHOD"];              /* 넘어오는 방식을 변수에 저장한다.(GET,POST) */
-if($rqt_mtd === "GET")                              /* 만약에 GET이면 실행한다. */
-{
-    $list_no = $_GET["list_no"];
-}
-else                                                /* 만약에 POST일경우 실행한다. */
-{
-    $list_no = $_POST["list_no"];
-    delete_list($list_no);
-}
+$list_no = $_GET["list_no"];
+
 
 ?>
 
@@ -27,19 +19,17 @@ else                                                /* 만약에 POST일경우 �
 </head>
 <body>
                                                                                 <!-- 헤더 영역이 정해지면 include_once로 설정  -->
-    <form action="" method="post">
-        <p>리스트 제목</p>                                                          <!-- PK로 넘어오는 값을 받아서 해당 PK의 제목을 화면에 표시 -->
-        <p>정보를 완전히 삭제합니다.<br>동의 하시면 확인을 눌러 주세요.</p>                     <!-- 주의 메세지 -->
-        <button type="submit">
-            <a href=" to_do_list.php " >
-                확인                                                                <!-- 클릭시 삭제를 완료하고 리스트 페이지로 이동(삭제 페이지를 하나 더 만들어야 된다.) -->
-            </a>                                                                    <!-- 그 페이지로 넘어가서 삭제를 하고 리스트 페이지로 바로 넘어갈 수 있게 만들어야 된다. -->
-        </button>
-        <button type="button">
-        <a href="detail_to_do_list.php?list_no=<?php echo $list_no ?>" >
-                취소                                                                <!-- 클릭시 상세 페이지로 이동(상세 페이지의 URL을 작성) -->
-            </a>
-        </button>
-    </form>
+    <p>리스트 제목</p>                                                          <!-- PK로 넘어오는 값을 받아서 해당 PK의 제목을 화면에 표시 -->
+    <p>정보를 완전히 삭제합니다.<br>동의 하시면 확인을 눌러 주세요.</p>                     <!-- 주의 메세지 -->
+    <button type="button">
+        <a href=" sub_delete.php?list_no=<?php echo $list_no ?>" >
+            확인                                                                <!-- 클릭시 삭제를 완료하고 리스트 페이지로 이동(삭제 페이지를 하나 더 만들어야 된다.) -->
+        </a>                                                                    <!-- 그 페이지로 넘어가서 삭제를 하고 리스트 페이지로 바로 넘어갈 수 있게 만들어야 된다. -->
+    </button>
+    <button type="button">
+    <a href="detail_to_do_list.php?list_no=<?php echo $list_no ?>" >
+            취소                                                                <!-- 클릭시 상세 페이지로 이동(상세 페이지의 URL을 작성) -->
+        </a>
+    </button>
 </body>
 </html>
