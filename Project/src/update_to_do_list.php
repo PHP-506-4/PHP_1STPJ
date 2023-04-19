@@ -56,12 +56,12 @@ else
     <br>
     <!-- 시작 시간 -->
     <label for="start_time">시작 시간</label> <!-- Ask ) name 같은 이름으로 해서 같이 값 넘겨주는게 맞는지?? -->
-    <input type="text" name="list_start_time" id="start_time" value="<?php echo $result_info['list_start_time']?>">
-    <input type="text" name="list_start_minute" id="start_min" value="<?php echo $result_info['list_start_minute']?>">
+    <input  type="number" name="list_start_time" id="start_time" min=00 max=23 value="<?php echo $result_info['list_start_time']?>">
+    <input  type="number" name="list_start_minute" id="start_min" min=00 max=59 value="<?php echo $result_info['list_start_minute']?>">
     <!-- 종료 시간 -->
     <label for="end_time">종료 시간</label>
-    <input type="text" name="list_end_time" id="end_time" value="<?php echo $result_info['list_end_time']?>">
-    <input type="text" name="list_end_minute" id="end_min" value="<?php echo $result_info['list_end_minute']?>">
+    <input type="number" name="list_end_time" id="end_time" min=00 max=23 value="<?php echo $result_info['list_end_time']?>">
+    <input type="number" name="list_end_minute" id="end_min" min=00 max=59 value="<?php echo $result_info['list_end_minute']?>">
     <br>
     <!-- 메모 칸 -->
     <textarea name="list_memo" id="memo" cols="30" rows="10" placeholder="메모"><?php echo $result_info["list_memo"]?></textarea>
