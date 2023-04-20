@@ -6,8 +6,31 @@ define( "HEADER", DB_CON."/header_to_do_list.php" );
 define( "PROFILE", DB_CON."/profile_to_do_list.php" );
 include_once(URL);
 
-$result_goal_info = select_goal_info();
-$result_list_info = select_list_info();
+if( array_key_exists( "page_num", $_GET ) )
+{
+    $page_num = $_GET["page_num"];
+}
+else
+{
+    $page_num = 1;
+}
+
+$limit_num = 7;
+
+$result_cnt = select_list_all_cnt();
+
+$max_page_num = ceil( (int)$result_cnt / $limit_num );
+
+$offset = ( $page_num * $limit_num ) - $limit_num;
+
+$arr_prepare =
+    array(
+        "limit_num"	=> $limit_num
+        ,"offset"	=> $offset
+    );
+
+// 페이징용 데이터 검색
+$result_paging = select_list_info( $arr_prepare );
 ?>
 <!DOCTYPE html>
 <html lang="ko">
@@ -19,7 +42,11 @@ $result_list_info = select_list_info();
     <link rel="stylesheet" href="./common/css_common.css">
     <link rel="stylesheet" href="./common/css_goal_to_do_list.css">
     <link rel="stylesheet" href="./common/css_to_do_list.css">
-
+    <style>
+        .a{
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
     <div class="main">
@@ -31,7 +58,7 @@ $result_list_info = select_list_info();
                 <?php include_once( GOAL )?>
                 <div class="clr">
                         <?php
-                        foreach ($result_list_info as $val)
+                        foreach ($result_paging as $val)
                         {
                         ?>
                             <div class="list">
@@ -74,6 +101,44 @@ $result_list_info = select_list_info();
                         <?php
                         }
                         ?>
+                        <div class="a">
+                        <?php
+                            if ($page_num > 1)
+                            {
+                            ?>
+                            <a href='to_do_list.php?page_num=<?php echo $page_num-1 ?>'class="page_button"><</a>
+                            <?php
+                            }
+                            else
+                            {
+                            ?>
+                                <a href='to_do_list.php?page_num=<?php echo $page_num ?>'class="page_button"><</a>
+                            <?php
+                            }
+                            ?>
+                            <?php
+                                for( $i = 1; $i <= $max_page_num; $i++ )
+                                {
+                            ?>
+                                    <a href='to_do_list.php?page_num=<?php echo $i ?>'class="page_button"><?php echo $i ?></a>
+                            <?php
+                                }
+                            ?>
+                            <?php
+                            if ($page_num < $max_page_num )
+                            {
+                            ?>
+                                <a href='to_do_list.php?page_num=<?php echo $page_num +1 ?>'class="page_button">></a>
+                            <?php
+                            }
+                            else
+                            {
+                            ?>
+                                <a href='to_do_list.php?page_num=<?php echo $page_num  ?>'class="page_button">></a>
+                            <?php
+                        }
+                        ?>
+                    </div>
                 </div>
             </div>
         </div>
