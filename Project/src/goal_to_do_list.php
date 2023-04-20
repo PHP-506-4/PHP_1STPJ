@@ -6,7 +6,7 @@
     $goal_date = "";
     $g_title = "";
 
-    if ( empty($result) ) {
+    if ( empty($result["goal_title"]) ) {
         $g_title = "목표를 정해주세요";
         $d_day ="";
     }
@@ -26,6 +26,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./common/css_common.css">
     <style>
         *{
             margin: 0;

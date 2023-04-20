@@ -1,1 +1,1 @@
-<h1>IDI!</h1>
+<a href="to_do_list.php" class=header><img src="./img/header.png" alt="IDI!"></a>
