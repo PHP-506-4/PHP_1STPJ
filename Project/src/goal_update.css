@@ -1,0 +1,84 @@
+.con1 {
+    height: 100%;
+}
+
+h2 {
+    margin: 20px 0;
+}
+
+form {
+    height: 50%;
+    text-align: center;
+    position: relative;
+    top: 10%;
+}
+
+form>label {
+    display: none;
+}
+
+form>input {
+    border: none;
+    width: 100%;
+    background-color: #E3F0FF;
+    padding: 15px;
+    border: none;
+    border-radius: 20px;
+    font-size: 15px;
+}
+
+form>input:focus {
+    outline: 1px solid #D9D9D9;
+}
+
+form>input
+,.buttons>button {
+    font-size: 18px;
+}
+
+#goal_title {
+    margin-bottom: 15px;
+}
+
+.buttons>a {
+    display: inline-block;
+}
+
+.buttons>button {
+    margin-right: 50px;
+}
+
+.buttons>button
+,.buttons>a {
+    padding: 10px;
+    width: 100px;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.buttons {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+.buttons>button {
+background-color: #2F50FF;
+}
+
+.buttons>button:hover{
+    background-color: #7b91fd;
+}
+
+.buttons>a {
+    background-color: #5E5E5E
+}
+
+.buttons>a:hover {
+    background-color: #979595;
+}
