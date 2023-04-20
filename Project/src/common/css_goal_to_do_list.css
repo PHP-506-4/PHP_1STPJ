@@ -1,0 +1,79 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.g_con{
+    text-align: center;
+
+}
+
+.g_con *{
+    font-size: 36px;
+    vertical-align: middle;
+}
+
+.d_day{
+    color: #2F50FF;
+}
+.d_past{
+    color: darkgrey;
+    text-decoration: line-through;
+}
+
+
+.bar{
+    color: rgb(109, 109, 109);
+}
+.graph{
+    width: 300px;
+    background-color: rgb(224, 224, 224);
+    height: 15px;
+    font-size: 0;
+    border-radius: 10px;
+    overflow: hidden;
+    display: inline-block;
+}
+.per{
+    width: 1%;
+    height: 15px;
+    background-color: rgb(59, 230, 87);
+    display: inline-block;
+}
+
+.comp_graph{
+    margin: 0 auto;
+    width: 60%;
+}
+
+.edit_btn{
+    padding: 10px;
+    /* display: inline-block; */
+    border-radius: 5px;
+    font-weight: 800;
+    font-size: 18px;
+    color: #fff;
+    background-color: #2F50FF;
+    /* margin-left: 50px; */
+    float: right;
+}
+
+.edit_btn:hover{
+    background-color: #6680ff;
+}
+
+.add_btn{
+    padding: 10px;
+    border-radius: 30px;
+    font-weight: 800;
+    font-size: 16px;
+    color: #fff;
+    background-color: #2F50FF;
+    float: right;
+}
+.add_btn:hover{
+    background-color: #6680ff;
+}
+.clr{
+    clear: both;
+}

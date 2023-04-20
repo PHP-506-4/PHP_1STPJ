@@ -26,8 +26,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./common/css_common.css">
-    <style>
+    <!-- <style>
         *{
             margin: 0;
             padding: 0;
@@ -48,53 +47,66 @@
             background-color: rgb(59, 230, 87);
             display: inline-block;
         }
-    </style>
+    </style> -->
 </head>
 <body>
-    <span><?php echo $g_title?></span>
-    <?php
-        $result_d = "";
-        if ( $d_day === 0 )
-        {
-            $result_d = "D-DAY";
-            ?>
-
-            <span class=d_day><?php echo $result_d?></span>
+    <div class="g_con">
+        <?php
+            $result_d = "";
+            if ( $d_day === 0 )
+            {
+                $result_d = "D-DAY";
+                ?>
+                <span class=d_day><?php echo $g_title?></span>
+                <span class="bar"> | </span>
+                <span class=d_day><?php echo $result_d?></span>
         <?php }
-        else if( $d_day === 1 )
-        {
-            $result_d = "D-".$d_day;
-            ?>
-
+            else if( $d_day === 1 )
+            {
+                $result_d = "D-".$d_day;
+                ?>
+            <span class=d_day><?php echo $g_title?></span>
+            <span class="bar"> | </span>
             <span class=d_day><?php echo $result_d?></span>
-        <?php
-        }
-        else if( $d_day > 0 )
-        {
-            $result_d = "D-".$d_day;
-            ?>
-
-            <span><?php echo $result_d?></span>
             <?php
-        }
-        else
-        {
-            $result_d = substr( $goal_date, 5 );?>
-
+            }
+            else if( $d_day > 0 )
+            {
+                $result_d = "D-".$d_day;
+                ?>
+                <span><?php echo $g_title?></span>
+                <span class="bar"> | </span>
+                <span><?php echo $result_d?></span>
+                <?php
+            }
+            else if(empty($result["goal_title"]))
+            {
+                ?>
+                <span><?php echo $g_title?></span>
+        
+                <?php
+            }
+            else
+            {
+                $result_d = substr( $goal_date, 5 );?>
+            <span class=d_past><?php echo $g_title?></span>
+            <span class="bar"> | </span>
             <span class=d_past><?php echo $result_d?></span>
-            <?php
-        }?>
-    <a href="goal_update.php">EDIT</a>
-    <br>
-    <span>달성도 <?php echo $percent ?>%</span>
-    <div class=graph>
-        <?php for ($i=0; $i <= $percent ; $i++)
-        { ?>
-            <div class=per></div>
         <?php
-        }?>
-    </div>
+            }?>
+    <a class="edit_btn" href="goal_update.php">EDIT</a>
+</div>
     <br>
-    <a href="insert_to_do_list.php">리스트추가</a>
+    <div class="comp_graph">
+        <span>달성도 <?php echo $percent ?>%</span>
+        <div class=graph>
+            <?php for ($i=0; $i <= $percent ; $i++)
+            { ?>
+                <div class=per></div>
+            <?php
+            }?>
+        </div>
+    </div>
+    <a class="add_btn" href="insert_to_do_list.php">리스트추가</a>
 </body>
 </html>
