@@ -1,3 +1,7 @@
+.clr{
+    clear: both;
+}
+
 .list{
     background-color: #E3F0FF;
     border-radius: 30px;
@@ -19,8 +23,16 @@
     
     width: 150px;
 }
+.a{
+    position: absolute;
+    display: inline-block;
+    bottom: 19%;
+    left: 53%;
+}
+
 .a>*{
     font-size: 18px;
+    font-weight: 800;
 }
 .a>*:hover{
     color: #2F50FF;
