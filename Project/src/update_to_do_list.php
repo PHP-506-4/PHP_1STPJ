@@ -66,7 +66,7 @@ else
           <div class="update_list_ti">
             <!-- 제목 -->
             <label for="title">제목 </label>
-            <input type="text" name="list_title" id="title" value="<?php echo $result_info["list_title"]?>" required>
+            <input type="text" name="list_title" id="title" value="<?php echo $result_info["list_title"]?>" required placeholder="제목">
           </div>
           <div class="update_time">
             <!-- 시작 시간 -->
@@ -81,7 +81,7 @@ else
           <div class="update_memo">
             <!-- 메모 칸 CSS에서 resize:none 해주기! -->
             <label for="memo">메모 :</label>
-            <textarea name="list_memo" id="memo" cols="30" rows="10" placeholder="메모"><?php echo $result_info["list_memo"]?></textarea>
+            <textarea name="list_memo" id="memo" cols="30" rows="10" placeholder="메모" ><?php echo $result_info["list_memo"]?></textarea>
           </div>
           <div class="update_radio">
             <!-- 라디오 버튼 -->
