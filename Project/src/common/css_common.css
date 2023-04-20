@@ -44,6 +44,12 @@ body{
     border-radius: 20px;
     padding: 28px;
     box-shadow: 0px 0px 7px 5px #0000002c;
+    word-break:break-all;
+}
+
+span{
+    white-space: pre-wrap;
+
 }
 
 .con1{
