@@ -33,9 +33,9 @@
                 </div>
                 <span>공부 시간</span>
                 <div class="list_d2">
-                    <span><?php echo sprintf('%02d',$result_info["list_start_time"]); ?>:</span>
+                    <span><?php echo sprintf('%02d',$result_info["list_start_time"]); ?> : </span>
                     <span><?php echo sprintf('%02d',$result_info["list_start_minute"]); ?> ~ </span>
-                    <span><?php echo sprintf('%02d',$result_info["list_end_time"]); ?>:</span>
+                    <span><?php echo sprintf('%02d',$result_info["list_end_time"]); ?> : </span>
                     <span><?php echo sprintf('%02d',$result_info["list_end_minute"]); ?></span>
                 </div>
                 <div class="list_d3">

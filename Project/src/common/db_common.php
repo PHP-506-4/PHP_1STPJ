@@ -220,7 +220,7 @@
     // 리턴값	: 없음
     // ---------------------------------
 
-    function select_list_info()
+    function select_list_info(&$param_arr)
     {
         $sql =
 		" SELECT "
@@ -234,14 +234,21 @@
 		." FROM "
 		." 	to_do_list_info "
         ." ORDER by list_comp_flg, list_no DESC"
+        ." LIMIT :limit_num OFFSET :offset "
 		;
+    
+        $arr_prepare =
+		array(
+			":limit_num"	=> $param_arr["limit_num"]
+			,":offset"		=> $param_arr["offset"]
+		);
 
 	$conn = null;
 	try
 	{
 		db_conn( $conn );
 		$stmt = $conn->prepare( $sql );
-		$stmt->execute();
+		$stmt->execute($arr_prepare);
 		$result = $stmt->fetchAll();
 	}
 	catch( Exception $e )
@@ -519,4 +526,51 @@
         }
     }
 
+// ---------------------------------
+// 함수명	: select_list_info_paging
+// 기능		: list 페이징하는 함수
+// 파라미터	: Array		&$param_arr
+// 리턴값	: Array		$result
+// ---------------------------------
+function select_list_info_paging( &$param_arr )
+{
+	$sql =
+		" SELECT "
+		." 	board_no "
+		." 	,board_title "
+		." 	,board_write_date "
+		." FROM "
+		." 	board_info "
+		." WHERE "
+		." 	board_del_flg = '0' "
+		." ORDER BY "
+		." 	board_no DESC "
+		." LIMIT :limit_num OFFSET :offset "
+		;
+	
+	$arr_prepare =
+		array(
+			":limit_num"	=> $param_arr["limit_num"]
+			,":offset"		=> $param_arr["offset"]
+		);
+
+	$conn = null;
+	try
+	{
+		db_conn( $conn );
+		$stmt = $conn->prepare( $sql );
+		$stmt->execute( $arr_prepare );
+		$result = $stmt->fetchAll();
+	}
+	catch( Exception $e )
+	{
+		return $e->getMessage();
+	}
+	finally
+	{
+		$conn = null;
+	}
+
+	return $result;
+}
 ?>
