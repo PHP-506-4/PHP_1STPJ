@@ -37,9 +37,16 @@ input:focus
     padding: 15px;
     border: none;
     border-radius: 20px;
-    font-size: 15px;
 }
 
+.update_list_ti>input
+,.update_time
+,.update_memo>textarea
+,.update_radio
+,.update_buttons
+,.update_buttons>button {
+    font-size: 18px;
+}
 
 .update_time>input {
     border: 1px solid #D9D9D9;
@@ -66,7 +73,6 @@ input:focus
 
 .update_radio {
     text-align: center;
-    font-size: 18px;
     margin-bottom: 40px;
 }
 
@@ -81,7 +87,6 @@ input:focus
     color: #ffffff;
     border: none;
     border-radius: 5px;
-    font-size: 18px;
     font-weight: 800;
     cursor: pointer;
 }
@@ -92,7 +97,6 @@ input:focus
 
 .update_buttons>a {
     display: inline-block;
-    font-size: 18px;
     font-weight: 800;
     padding: 10px;
     width: 100px;
