@@ -39,7 +39,7 @@ else
                 <h2>목표 수정</h2>
                 <form action="goal_update.php" method="post">
                     <label for="goal_title">목표</label>
-                    <input type="text" name="goal_title" id="goal_title" required value="<?php echo $result["goal_title"]?>">
+                    <input type="text" name="goal_title" id="goal_title" required value="<?php echo $result["goal_title"]?>" autofocus>
                     <br>
                     <label for="goal_date">날짜</label>
                     <input type="date" name="goal_date" id="goal_date" required value="<?php echo $result["goal_date"]?>">
