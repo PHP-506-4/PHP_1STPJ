@@ -14,6 +14,12 @@
     <br>
     <br>
     <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
     <?php
     $arr_random = 
         array(
@@ -50,6 +56,6 @@
             ,"잘먹고 잘살자"
             ,"목으로 날아가도 날아가기만하면 된다."
         );
-        echo $arr_random[rand(0,count($arr_random)-1)];
+        echo $arr_random[rand(0,(count($arr_random)-1))];
     ?>
 </div>
