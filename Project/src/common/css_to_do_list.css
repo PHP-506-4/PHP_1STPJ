@@ -1,0 +1,15 @@
+.list{
+    background-color: #C9E2FF;
+    border-radius: 30px;
+    height: 3em;
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    
+}
+.list *{
+    /* vertical-align: middle; */
+    /* line-height: 3em; */
+    padding: 0 10px;
+    /* flex-wrap: wrap; */
+}
