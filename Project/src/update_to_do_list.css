@@ -8,6 +8,17 @@
     height: 100%;
 }
 
+h2 {
+    margin: 20px 0;
+}
+
+.update_list_ti
+,.update_time
+,.update_memo
+,.update_radio {
+    margin-bottom: 20px;
+}
+
 input:focus
 ,textarea:focus {
     outline: 1px solid #D9D9D9;
@@ -26,6 +37,7 @@ input:focus
     padding: 15px;
     border: none;
     border-radius: 20px;
+    font-size: 15px;
 }
 
 
@@ -36,12 +48,30 @@ input:focus
     padding-left: 7px;
 }
 
+.update_time>label {
+    margin-right: 10px;
+}
+
+.update_time>input {
+    margin: 0 3px;
+}
+
+.update_time>#start_min {
+    margin-right: 40px;
+}
+
 .update_memo>textarea {
     resize: none;
 }
 
 .update_radio {
     text-align: center;
+    font-size: 18px;
+    margin-bottom: 40px;
+}
+
+.update_radio>label {
+    margin-right: 40px;
 }
 
 .update_buttons>button {
@@ -53,6 +83,11 @@ input:focus
     border-radius: 5px;
     font-size: 18px;
     font-weight: 800;
+    cursor: pointer;
+}
+
+.update_buttons>button:hover {
+    background-color: #617cff;
 }
 
 .update_buttons>a {
@@ -63,17 +98,28 @@ input:focus
     width: 100px;
     color: #ffffff;
     border-radius: 5px;
-    /* border: 1px solid black; */
+}
+
+.update_buttons>button
+,.update_buttons>a {
+    margin-right: 20px;
 }
 
 .update_buttons>.canc_button {
     background-color: #5D5D5D;
 }
 
-.update_buttons>.del_button {
-    background-color: #E04B4B;
+.update_buttons>.canc_button:hover {
+    background-color: #868686
 }
 
+.update_buttons>.del_button {
+    background-color: #c44040;
+}
+
+.update_buttons>.del_button:hover {
+    background-color: #c76161;
+}
 /* height 3em
 boder-radius 20px 
 padding 15
