@@ -86,7 +86,7 @@ $result_paging = select_list_info( $arr_prepare );
                                     <?php
                                     if($val["list_start_time"]!== "" && $val["list_start_minute"]!== "")
                                     {
-                                    echo sprintf("%02d",$val["list_start_minute"])." : ".sprintf("%02d",$val["list_start_minute"]);
+                                    echo sprintf("%02d",$val["list_start_time"])." : ".sprintf("%02d",$val["list_start_minute"]);
                                     ?>
                                     <span> ~ </span>
                                     <?php

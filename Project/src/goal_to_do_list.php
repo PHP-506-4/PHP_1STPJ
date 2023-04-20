@@ -26,28 +26,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <!-- <style>
-        *{
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        .graph{
-            width: 300px;
-            background-color: rgb(224, 224, 224);
-            height: 15px;
-            font-size: 0;
-            border-radius: 10px;
-            overflow: hidden;
-            display: inline-block;
-        }
-        .per{
-            width: 1%;
-            height: 15px;
-            background-color: rgb(59, 230, 87);
-            display: inline-block;
-        }
-    </style> -->
 </head>
 <body>
     <div class="g_con">
@@ -70,7 +48,7 @@
             <span class=d_day><?php echo $result_d?></span>
             <?php
             }
-            else if( $d_day > 0 )
+            else if( $d_day > 1 )
             {
                 $result_d = "D-".$d_day;
                 ?>

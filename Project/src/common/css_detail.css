@@ -15,13 +15,17 @@ h2{
     height: 3em;
 }
 .list_d2{
-    width: 90%;
+    width: 89%;
     height: 3em;
     display: inline-block;
     margin-left: 10px;
 }
 .list_d3{
-    height: 15em;
+    height: 16em;
+    overflow-y:scroll;
+}
+.list_d3::-webkit-scrollbar{
+    display: none;
 }
 
 .con_btn{
