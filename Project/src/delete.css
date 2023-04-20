@@ -5,21 +5,40 @@ p{
     margin: 40px auto;
     border-radius: 20px;
 }
+h2{
+    text-align: left;
+}
 .title_p{
-    background-color:#C9E2FF;
-    width: 70%;
-    height: 50px;
-    line-height: 50px;
-    margin-top: 15vh;
+    background-color:#e3f0ff;
+    width: 95%;
+    height: 70px;
+    line-height: 70px;
+    margin-top: 10vh;
+    font-size: 30px;
 }
 .exception_p{
-    width: 35%;
+    width: 40%;
     height: 50px;
     line-height: 25px;
     margin-top:15vh ;
+    font-size: 20px;
+    font-weight: 600;
 }
-button{
-    width: 55px;
-    height: 30px;
-    margin: 0 15px;
+.check
+,.cancle{
+    padding: 10px;
+    width: 100px;
+    border-radius: 5px;
+    font-weight: 800;
+    font-size: 18px;
+    color: #fff;
+    margin: 20px;
+    display:inline-block;
+}
+
+.check{
+    background-color: #e04b4b;
+}
+.cancle{
+    background-color: #5e5e5e;
 }
