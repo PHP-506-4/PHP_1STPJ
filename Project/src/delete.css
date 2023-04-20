@@ -2,11 +2,11 @@
     text-align:center;
 }
 p{
-    background-color:#C9E2FF;
     margin: 40px auto;
     border-radius: 20px;
 }
 .title_p{
+    background-color:#C9E2FF;
     width: 70%;
     height: 50px;
     line-height: 50px;

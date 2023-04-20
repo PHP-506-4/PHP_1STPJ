@@ -197,7 +197,7 @@
 		." 	,list_end_minute "
 		." FROM "
 		." 	to_do_list_info "
-        ." ORDER by list_comp_flg, list_no "
+        ." ORDER by list_comp_flg, list_no DESC"
 		;
 
 	$conn = null;
