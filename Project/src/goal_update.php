@@ -27,6 +27,7 @@ else
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./common/css_common.css">
+    <link rel="stylesheet" href="./goal_update.css">
 </head>
 <body>
     <div class="main">
@@ -35,14 +36,18 @@ else
             <br>
             <?php include_once( PROFILE ) ?>
             <div class="con1">
+                <h2>목표 수정</h2>
                 <form action="goal_update.php" method="post">
                     <label for="goal_title">목표</label>
                     <input type="text" name="goal_title" id="goal_title" required value="<?php echo $result["goal_title"]?>">
+                    <br>
                     <label for="goal_date">날짜</label>
                     <input type="date" name="goal_date" id="goal_date" required value="<?php echo $result["goal_date"]?>">
                     <br>
-                    <button type="submit">수정</button>
-                    <button type="button"><a href="to_do_list.php">취소</a></button>
+                    <div class="buttons">
+                        <button type="submit">수정</button>
+                        <a href="to_do_list.php">취소</a>
+                    </div>
                 </form>
             </div>
         </div>
