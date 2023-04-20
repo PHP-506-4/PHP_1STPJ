@@ -66,7 +66,7 @@ else
           <div class="update_list_ti">
             <!-- 제목 -->
             <label for="title">제목 </label>
-            <input type="text" name="list_title" id="title" value="<?php echo $result_info["list_title"]?>" required placeholder="제목">
+            <input type="text" name="list_title" id="title" value="<?php echo $result_info["list_title"]?>" required placeholder="제목" autofocus>
           </div>
           <div class="update_time">
             <!-- 시작 시간 -->
