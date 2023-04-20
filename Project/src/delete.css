@@ -1,0 +1,25 @@
+.con1{
+    text-align:center;
+}
+p{
+    background-color:#C9E2FF;
+    margin: 40px auto;
+    border-radius: 20px;
+}
+.title_p{
+    width: 70%;
+    height: 50px;
+    line-height: 50px;
+    margin-top: 15vh;
+}
+.exception_p{
+    width: 35%;
+    height: 50px;
+    line-height: 25px;
+    margin-top:15vh ;
+}
+button{
+    width: 55px;
+    height: 30px;
+    margin: 0 15px;
+}

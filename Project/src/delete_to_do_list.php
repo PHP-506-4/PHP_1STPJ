@@ -20,6 +20,7 @@ $result_title = select_list_no( $list_no );
     <link rel="stylesheet" href="연결할 CSS파일 경로">                          <!-- CSS파일이 정해지면 경로 수정 -->
     <title>삭제 페이지</title>
     <link rel="stylesheet" href="./common/css_common.css">
+    <link rel="stylesheet" href="./delete.css">
 </head>
 <body>
 <div class="main">
@@ -27,9 +28,10 @@ $result_title = select_list_no( $list_no );
         <?php include_once(URL_HEADER);?>                                                     <!-- 헤더 영역이 정해지면 include_once로 설정  -->
         <br>
         <?php include_once( PROFILE ) ?>
+        <h2>리스트 삭제</h2>
         <div class="con1">
-            <p>제목 : <?php echo $result_title["list_title"] ?></p>                                                          <!-- PK로 넘어오는 값을 받아서 해당 PK의 제목을 화면에 표시 -->
-            <p>정보를 완전히 삭제합니다.<br>동의 하시면 확인을 눌러 주세요.</p>                     <!-- 주의 메세지 -->
+            <p class="title_p">제목 : <?php echo $result_title["list_title"] ?></p>                                                          <!-- PK로 넘어오는 값을 받아서 해당 PK의 제목을 화면에 표시 -->
+            <p class="exception_p">정보를 완전히 삭제합니다.<br>동의 하시면 확인을 눌러 주세요.</p>                     <!-- 주의 메세지 -->
             <button type="button">
                 <a href=" sub_delete.php?list_no=<?php echo $list_no ?>" >
                     확인                                                                <!-- 클릭시 삭제를 완료하고 리스트 페이지로 이동(삭제 페이지를 하나 더 만들어야 된다.) -->
