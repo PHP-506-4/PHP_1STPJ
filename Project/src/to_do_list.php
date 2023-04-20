@@ -4,6 +4,7 @@ define( "URL",DB_CON."/common/db_common.php" );
 define( "GOAL",DB_CON."/goal_to_do_list.php" );
 define( "HEADER", DB_CON."/header_to_do_list.php" );
 define( "PROFILE", DB_CON."/profile_to_do_list.php" );
+define( "FOOTER", DB_CON."/footer_to_do_list.php");
 include_once(URL);
 
 if( array_key_exists( "page_num", $_GET ) )
@@ -61,8 +62,9 @@ $result_paging = select_list_info( $arr_prepare );
                         foreach ($result_paging as $val)
                         {
                         ?>
+                        <a href="detail_to_do_list.php?list_no=<?php echo $val["list_no"]?>">
                             <div class="list">
-                                <div class="chk">
+                                
                                     <?php
                                     $comp_flg = $val["list_comp_flg"];
                                     if($comp_flg === '0' )
@@ -78,8 +80,8 @@ $result_paging = select_list_info( $arr_prepare );
                                     <?php
                                     }
                                     ?>
-                                </div>
-                                <a href="detail_to_do_list.php?list_no=<?php echo $val["list_no"]?>"><?php echo $val["list_title"]?></a>
+                                
+                                <div class="title"><?php echo $val["list_title"]?></div>
                                 <div class="time">
                                     <?php
                                     if($val["list_start_time"]!== "" && $val["list_start_minute"]!== "")
@@ -98,9 +100,11 @@ $result_paging = select_list_info( $arr_prepare );
                                     ?>
                                 </div>
                             </div>
+                            </a>
                         <?php
                         }
                         ?>
+                        <br>
                         <div class="a">
                         <?php
                             if ($page_num > 1)
@@ -143,5 +147,6 @@ $result_paging = select_list_info( $arr_prepare );
             </div>
         </div>
     </div>
+    <?php include_once( FOOTER ); ?>
 </body>
 </html>
