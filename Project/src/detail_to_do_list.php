@@ -3,6 +3,7 @@
     define( "URL_DB", SRC_ROOT."common/db_common.php" );
     define( "HEADER", SRC_ROOT."header_to_do_list.php");
     define( "PROFILE", SRC_ROOT."profile_to_do_list.php" );
+    define( "FOOTER", SRC_ROOT."footer_to_do_list.php");
     include_once( URL_DB );
 
     $arr_get = $_GET; // GET Request Parameter 획득
@@ -47,5 +48,6 @@
             </div>
         </div>
     </div>
+    <?php include_once( FOOTER ); ?>
 </body>
 </html>
