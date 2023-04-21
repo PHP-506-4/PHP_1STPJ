@@ -6,17 +6,17 @@
     define( "FOOTER", SRC_ROOT."footer_to_do_list.php");
     include_once ( URL_DB );
 
-    $http_method = $_SERVER["REQUEST_METHOD"];
-    if( $http_method === "POST")
+    $http_method = $_SERVER["REQUEST_METHOD"];                                                                                              // form을 GET 인지 POST인지 체크
+    if( $http_method === "POST")                                                                                                            // POST 방식 일때
     {
         $arr_post = $_POST;
 
-        $result_cnt = insert_to_do_list_info( $arr_post );
+        $result_cnt = insert_to_do_list_info( $arr_post );                                                                                  // POST로 받아온 값 DB 추가 및 확인하는 함수
 
-        $arr_no = select_to_do_list_limit();
+        $arr_no = select_to_do_list_limit();                                                                                                // 상세 페이지 이동을 위한 list_no 값 가져오기 위해 함수 사용
         
 
-        header( "Location: detail_to_do_list.php?list_no=".$arr_no["list_no"] );
+        header( "Location: detail_to_do_list.php?list_no=".$arr_no["list_no"] );                                                            // location에 적힌 페이지 이동 및 종료
         exit();
     }
 
@@ -34,12 +34,12 @@
 </head>
 <body>
     <div class="con">
-        <?php include_once( HEADER ); ?>
+        <?php include_once( HEADER ); ?>                                                                                                    <!-- 이미지파일 출력 -->
         <br>
-        <?php include_once( PROFILE ) ?>
+        <?php include_once( PROFILE ) ?>                                                                                                    <!-- 프로필 출력 -->
         <div class="con1">
             <h2>리스트 작성</h2>
-            <form method="post" action="insert_to_do_list.php">
+            <form method="post" action="insert_to_do_list.php">                                                                             <!-- input 값을 POST방식으로 전달 -->
                 <input type="hidden" name="list_no" class="list_no">
                 <input type="text" name="list_title" class="list_title" placeholder="제목" required autofocus>
                 <br>
@@ -58,7 +58,7 @@
                 <textarea name="list_memo" class="list_memo" placeholder="메모"></textarea>
                 <br>
                 <div class="con_btn">
-                <button type="submit" class="button_1">추가</button>
+                <button type="submit" class="button_1">추가</button>                                                                        <!-- form 값 전송 버튼 -->
                 <button type="button" class="button_2" onclick="location.href='to_do_list.php'">취소</button>
                 </div>
             </form>
