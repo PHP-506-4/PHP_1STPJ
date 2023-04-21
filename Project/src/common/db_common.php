@@ -532,10 +532,10 @@ function select_list_info_paging( &$param_arr )
 	return $result;
 }
     // ---------------------------------
-    // 함수명	: select_list_info_paging
+    // 함수명	: select_profile_paging
     // 기능		: list 페이징하는 함수
     // 파라미터	: Array		&$param_arr
-    // 리턴값	: Array		$result
+    // 리턴값	: Array		$result[0]
     // ---------------------------------
 
     function select_profile_info()
