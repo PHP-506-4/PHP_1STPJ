@@ -17,6 +17,7 @@ span {
     border-radius: 20px;
     margin-bottom: 10px;
     padding: 15px;
+    font-size: 18px;
 }
 input {
     background-color: #e3f0ff;
@@ -41,6 +42,7 @@ input {
     margin: 10px 0;
     padding: 15px;
     line-height: 50px;
+    font-size: 18px;
 }
 .con_btn {
     height: 90%;

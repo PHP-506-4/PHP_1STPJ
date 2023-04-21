@@ -41,7 +41,7 @@
             <h2>리스트 작성</h2>
             <form method="post" action="insert_to_do_list.php">
                 <input type="hidden" name="list_no" class="list_no">
-                <input type="text" name="list_title" class="list_title" required autofocus>
+                <input type="text" name="list_title" class="list_title" placeholder="제목" required autofocus>
                 <br>
                 <div class="con2">
                     <div class=con_start_time>
@@ -55,7 +55,7 @@
                         <input type="number" name="list_end_minute" class="list_end_minute" id="list_end_minute" min="0" max="59">
                     </div>
                 </div>
-                <textarea name="list_memo" class="list_memo"></textarea>
+                <textarea name="list_memo" class="list_memo" placeholder="메모"></textarea>
                 <br>
                 <div class="con_btn">
                 <button type="submit" class="button_1">추가</button>
