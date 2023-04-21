@@ -2,17 +2,20 @@ h2{
     margin: 20px 0;
 }
 
-
 .preview_img{
-    width: 150px;
-    height: 150px;
+    max-width: 150px;
+    max-height: 150px;
 }
 form * {
     margin: 10px;
 }
-input{
+.name{
     border: none;
-    
+    width: 100%;
+    background-color: #E3F0FF;
+    padding: 15px;
+    border-radius: 20px;
+
 }
 
 input:focus {

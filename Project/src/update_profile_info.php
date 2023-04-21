@@ -42,7 +42,7 @@ else
             <h2>프로필 수정</h2>
             <form action="" method="post">
                 <label for="profile_name">닉네임</label>
-                <input type="text" name="profile_name" id="profile_name" value="<?php echo $result['profile_name'] ?>" maxlength="6">
+                <input class="name" type="text" name="profile_name" id="profile_name" value="<?php echo $result['profile_name'] ?>" maxlength="6">
                 <br>
                 <label for="profile_img"><img class="preview_img" src="./img/<?php echo $result['profile_img']?>" alt=""></label>
                 <input type="file" accept="image/*" id="profile_img" name="profile_img" required ?>
