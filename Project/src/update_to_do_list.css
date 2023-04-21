@@ -1,3 +1,4 @@
+/* 필요없는 라벨 화면에서 보이지 않게 */
 .update_list_ti>label
 ,.update_memo>label {
     display: none;
@@ -8,10 +9,12 @@
     height: 100%;
 }
 
+/* h2 margin */
 h2 {
     margin: 20px 0;
 }
 
+/* 제목, 시간, 메모, 라디오 버튼 밑 margin */
 .update_list_ti
 ,.update_time
 ,.update_memo
@@ -19,17 +22,20 @@ h2 {
     margin-bottom: 20px;
 }
 
+/* input, 메모 클릭했을 때 outline 회색으로 */
 input:focus
 ,textarea:focus {
     outline: 1px solid #D9D9D9;
 }
 
+/* 중앙정렬 */
 .update_time
 ,.update_radio
 ,.update_buttons {
     text-align: center;
 }
 
+/* input, 메모 디자인 */
 .update_list_ti>input
 ,.update_memo>textarea {
     width: 100%;
@@ -39,6 +45,7 @@ input:focus
     border-radius: 20px;
 }
 
+/* 글자 크기 */
 .update_list_ti>input
 ,.update_time
 ,.update_memo>textarea
@@ -48,6 +55,7 @@ input:focus
     font-size: 18px;
 }
 
+/* input 시간 디자인 */
 .update_time>input {
     border: 1px solid #D9D9D9;
     width: 40px;
@@ -55,6 +63,7 @@ input:focus
     padding-left: 7px;
 }
 
+/* input 시간 margin */
 .update_time>label {
     margin-right: 10px;
 }
@@ -67,10 +76,12 @@ input:focus
     margin-right: 40px;
 }
 
+/* 메모 사이즈 조절 못하게 */
 .update_memo>textarea {
     resize: none;
 }
 
+/* 라디오버튼 중앙정렬, margin */
 .update_radio {
     text-align: center;
     margin-bottom: 40px;
@@ -80,6 +91,7 @@ input:focus
     margin-right: 40px;
 }
 
+/* button 태그 디자인, hover 속성 */
 .update_buttons>button {
     padding: 10px;
     width: 100px;
@@ -95,6 +107,7 @@ input:focus
     background-color: #617cff;
 }
 
+/* a태그 글자 디자인 */
 .update_buttons>a {
     display: inline-block;
     font-weight: 800;
@@ -104,11 +117,13 @@ input:focus
     border-radius: 5px;
 }
 
+/* 버튼들 오른쪽 margin */
 .update_buttons>button
 ,.update_buttons>a {
     margin-right: 20px;
 }
 
+/* 버튼 색깔, hover 했을때 색깔 변경 */
 .update_buttons>.canc_button {
     background-color: #5D5D5D;
 }
@@ -124,7 +139,3 @@ input:focus
 .update_buttons>.del_button:hover {
     background-color: #c76161;
 }
-/* height 3em
-boder-radius 20px 
-padding 15
-margin 10px 0*/
