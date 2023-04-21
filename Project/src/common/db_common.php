@@ -70,7 +70,12 @@
         }
     }
     
-
+    // ---------------------------------
+    // 함수명	: select_list_no
+    // 기능		: list_no에 해당하는 값들 출력
+    // 파라미터	: Array       &$param_no
+    // 리턴값	: Array
+    // ---------------------------------
     function select_list_no( &$param_no ) // 0419 edit 함수명
     {
         $sql =
