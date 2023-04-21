@@ -70,7 +70,12 @@
         }
     }
     
-
+    // ---------------------------------
+    // 함수명	: select_list_no
+    // 기능		: list_no에 해당하는 값들 출력
+    // 파라미터	: Array       &$param_no
+    // 리턴값	: Array
+    // ---------------------------------
     function select_list_no( &$param_no ) // 0419 edit 함수명
     {
         $sql =
@@ -430,12 +435,19 @@
         return $result[0]["cnt"];
     }
 
+    // ---------------------------------
+    // 함수명	: comp_percent
+    // 기능		: select_list_comp_cnt함수와 select_list_all_cnt 함수를 이용하여 리스트 달성률 계산하는 함수
+    // 파라미터	: Array     &$param_arr
+    // 리턴값	: INT       $result
+    // ---------------------------------
     function comp_percent()
     {
         $result = select_list_comp_cnt() / select_list_all_cnt() * 100 ;
         $result = intval($result);
         return $result;
     }
+
     // ---------------------------------
     // 함수명	: update_goal
     // 기능		: DB update
@@ -526,13 +538,13 @@ function select_list_info_paging( &$param_arr )
 
 	return $result;
 }
-    // ---------------------------------
-    // 함수명	: select_list_info_paging
-    // 기능		: list 페이징하는 함수
-    // 파라미터	: Array		&$param_arr
-    // 리턴값	: Array		$result
-    // ---------------------------------
 
+    // ---------------------------------
+    // 함수명	: select_profile_info
+    // 기능		: 프로필 정보 불러오는 함수
+    // 파라미터	: 없음
+    // 리턴값	: Array/STRING		$result[0]/ERRMSG
+    // ---------------------------------
     function select_profile_info()
     {
         $sql =
@@ -560,7 +572,12 @@ function select_list_info_paging( &$param_arr )
             return $result[0];
     }
 
-
+    // ---------------------------------
+    // 함수명	: update_profile_info
+    // 기능		: 프로필 정보 업데이트하는 함수
+    // 파라미터	: Array             $param_arr
+    // 리턴값	: 없음
+    // ---------------------------------
     function update_profile_info( &$param_arr )
     {
         $sql =
