@@ -34,7 +34,8 @@ h2{
 }
 
 .btn1
-,.btn2{
+,.btn2
+,.btn_chk{
     padding: 10px;
     width: 100px;
     display: inline-block;
@@ -43,6 +44,16 @@ h2{
     font-size: 18px;
     color: #fff;
     margin: 20px;
+}
+
+.btn_chk{
+    color: #2F50FF;
+    background-color: #ffffff;
+    border: 1px solid #2F50FF;
+}
+
+.btn_chk:hover{
+    background-color: #b9c4ff;
 }
 
 .btn1{

@@ -42,6 +42,7 @@ body{
 .pro_img{
     width: 150px;
     height: 150px;
+    margin: 0 auto;
     border-radius: 80px;
     overflow: hidden;
     position: relative;

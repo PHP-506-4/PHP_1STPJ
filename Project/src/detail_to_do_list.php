@@ -41,7 +41,20 @@
                     <p><?php echo $result_info["list_memo"]; ?></p>
                 </div>
                 <div class="con_btn">
-                    <a href="update_comp_flg.php?list_no=<?php echo $result_info["list_no"];?>" class="btn1">완료</a>
+                    <?php
+                    $comp_flg = $result_info["list_comp_flg"];
+                    if ( $comp_flg === '0' )
+                    {?>
+                        <a href="update_comp_flg.php?list_no=<?php echo $result_info["list_no"];?>" class="btn_chk">수행완료</a> <!-- 수행완료 아닐땐 수행완료 버튼 -->
+                        <?php
+                    }
+                    else
+                    {?>
+                        <a href="update_comp_flg.php?list_no=<?php echo $result_info["list_no"];?>" class="btn_chk">수행취소</a> <!-- 수행완료 일땐 수행취소 버튼 -->
+                    
+                    <?php
+                    }
+                    ?>
                     <a href="update_to_do_list.php?list_no=<?php echo $result_info["list_no"];?>" class="btn1">수정</a>
                     <a href="to_do_list.php" class="btn2">리스트로</a>
                 </div>

@@ -627,13 +627,14 @@ function select_list_info_paging( &$param_arr )
             " UPDATE "
             ."  to_do_list_info  "
             ." SET "
-            ."  list_comp_flg = '1'"
+            ."  list_comp_flg = :list_comp_flg"
             ." WHERE "
             ."  list_no = :list_no "
             ;
         $arr_prepare =
             array(
-                ":list_no"  => $param_arr["list_no"]
+                ":list_comp_flg"    => $param_arr["list_comp_flg"]
+                ,":list_no"         => $param_arr["list_no"]
             );
 
             $conn = null;
