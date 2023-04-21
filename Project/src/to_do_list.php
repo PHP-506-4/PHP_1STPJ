@@ -40,6 +40,11 @@ $result_paging = select_list_info( $arr_prepare ); /* 쿼리에 어레이를 요
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>to do list</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="./img/fvc2.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
     <link rel="stylesheet" href="./common/css_common.css">
     <link rel="stylesheet" href="./common/css_goal_to_do_list.css">
     <link rel="stylesheet" href="./common/css_to_do_list.css">
