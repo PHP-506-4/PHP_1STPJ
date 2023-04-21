@@ -41,7 +41,7 @@
             <h2>리스트 작성</h2>
             <form method="post" action="insert_to_do_list.php">
                 <input type="hidden" name="list_no" class="list_no">
-                <input type="text" name="list_title" class="list_title" required>
+                <input type="text" name="list_title" class="list_title" required autofocus>
                 <br>
                 <div class="con2">
                     <div class=con_start_time>
