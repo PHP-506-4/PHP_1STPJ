@@ -65,6 +65,9 @@ button {
     margin: 20px;
     background-color: #2F50FF
 }
+.button_1:hover {
+    background-color: #7b91fd;
+}
 .button_2 {
     padding: 10px;
     width: 100px;
@@ -75,6 +78,9 @@ button {
     color: #fff;
     margin: 20px;
     background-color: #5E5E5E;
+}
+.button_2:hover{
+    background-color: #b3b3b3;
 }
 .con2 input {
     border: 1px solid #D9D9D9;
