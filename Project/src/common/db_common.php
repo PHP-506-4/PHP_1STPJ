@@ -615,4 +615,44 @@ function select_list_info_paging( &$param_arr )
     
         return $result;
     }
+
+    // ---------------------------------
+    // 함수명	: update_comp_flg
+    // 기능		: 상세 페이지에서 리스트 수행 완료하는 함수
+    // 파라미터	: Array             $param_arr
+    // 리턴값	: 없음
+    // ---------------------------------
+    function update_comp_flg( &$param_arr ){
+        $sql =
+            " UPDATE "
+            ."  to_do_list_info  "
+            ." SET "
+            ."  list_comp_flg = '1'"
+            ." WHERE "
+            ."  list_no = :list_no "
+            ;
+        $arr_prepare =
+            array(
+                ":list_no"  => $param_arr["list_no"]
+            );
+
+            $conn = null;
+            try
+            {
+                db_conn( $conn );
+                $conn->beginTransaction();
+                $stmt = $conn->prepare( $sql );
+                $stmt->execute( $arr_prepare );
+                $conn->commit();
+            }
+            catch( Exception $e )
+            {
+                $conn->rollback();
+                return $e->getMessage();
+            }
+            finally
+            {
+                $conn = null;
+            }
+    }
 ?>

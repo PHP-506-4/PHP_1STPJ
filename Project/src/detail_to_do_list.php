@@ -41,6 +41,7 @@
                     <p><?php echo $result_info["list_memo"]; ?></p>
                 </div>
                 <div class="con_btn">
+                    <a href="update_comp_flg.php?list_no=<?php echo $result_info["list_no"];?>" class="btn1">완료</a>
                     <a href="update_to_do_list.php?list_no=<?php echo $result_info["list_no"];?>" class="btn1">수정</a>
                     <a href="to_do_list.php" class="btn2">리스트로</a>
                 </div>
