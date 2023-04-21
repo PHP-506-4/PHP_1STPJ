@@ -53,5 +53,6 @@ else
             </form>
         </div>
     </div>
+    <?php include_once( FOOTER ); ?>
 </body>
 </html>
