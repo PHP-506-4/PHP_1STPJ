@@ -70,60 +70,12 @@
         }
     }
     
-    // 0420 함수 삭제
-    //------------------------------------
-    // 함수명       : select_list_no
-    // 기능         : 해당 list_no 리스트의 상세 내용 출력
-    // 파라미터     : array         &$param_no
-    // 리턴값       : array/STRING $result[0]/ERRMSG
-    //------------------------------------
-    // function select_list_no( &$param_no ) // 0419 edit 함수명
-    // {
-    //     $sql =
-    //         " SELECT "
-    //         ."  list_no "
-    //         ."  ,list_title "
-    //         ."  ,list_start_time "
-    //         ."  ,list_start_minute "
-    //         ."  ,list_end_time "
-    //         ."  ,list_end_minute "
-    //         ."  ,list_memo "
-    //         ." FROM "
-    //         ."  to_do_list_info "
-    //         ." WHERE "
-    //         ."  list_no = :list_no "
-    //         ;
-
-    //     $arr_prepare =
-    //         array(
-    //             ":list_no"   => $param_no
-    //         );
-
-    //     $conn = null;
-
-    //     try
-    //     {
-    //         db_conn( $conn );
-    //         $stmt = $conn->prepare( $sql );
-    //         $stmt->execute( $arr_prepare );
-    //         $result = $stmt->fetchAll();
-    //     }
-    //     catch (Exception $e)
-    //     {
-    //         return $e->getMessage();
-    //     }
-    //     finally
-    //     {
-    //         $param_conn = null;
-    //     }
-    //     return $result[0];
-    // }
 
     function select_list_no( &$param_no ) // 0419 edit 함수명
     {
         $sql =
             " SELECT "
-            ." * " // 0420 edit 변경
+            ." * " // 0420 edit 값 전체 받아오게 변경
             ." FROM "
             ."  to_do_list_info "
             ." WHERE "
@@ -574,4 +526,76 @@ function select_list_info_paging( &$param_arr )
 
 	return $result;
 }
+    // ---------------------------------
+    // 함수명	: select_list_info_paging
+    // 기능		: list 페이징하는 함수
+    // 파라미터	: Array		&$param_arr
+    // 리턴값	: Array		$result
+    // ---------------------------------
+
+    function select_profile_info()
+    {
+        $sql =
+            " SELECT "
+            ."  * "
+            ." FROM "
+            ."  profile_info "
+            ;
+
+            try
+            {
+                db_conn( $conn );
+                $stmt = $conn->query( $sql );
+                $result = $stmt->fetchAll();
+            }
+            catch( Exception $e )
+            {
+                return $e->getMessage();
+            }
+            finally
+            {
+                $conn = null;
+            }
+    
+            return $result[0];
+    }
+
+
+    function update_profile_info( &$param_arr )
+    {
+        $sql =
+            " UPDATE "
+            ."  profile_info "
+            ." SET "
+            ."  profile_name = :profile_name "
+            ."  ,profile_img = :profile_img "
+            ;
+        
+            $arr_prepare =
+            array(
+                ":profile_name"	=> $param_arr["profile_name"]
+                ,":profile_img" => $param_arr["profile_img"]
+            );
+    
+        $conn = null;
+        try
+        {
+            db_conn( $conn );
+            $conn->beginTransaction();
+            $stmt = $conn->prepare( $sql );
+            $stmt->execute( $arr_prepare );
+            $conn->commit();
+        }
+        catch( Exception $e )
+        {
+            $conn->rollback();
+            return $e->getMessage();
+        }
+        finally
+        {
+            $conn = null;
+        }
+    
+        return $result;
+    }
 ?>

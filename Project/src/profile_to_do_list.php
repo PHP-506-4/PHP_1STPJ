@@ -1,7 +1,15 @@
+<?php
+    $p_result = select_profile_info();
+?>
+
 <div class=p_con>
-    <img src="./img/profile.png" alt="프로필">
+    <!-- <img src="./img/profile.png" alt="프로필"> -->
+    <div class="pro_img">
+        <img src="./img/<?php echo $p_result['profile_img']?>" alt="프로필">
+    </div>
     <br>
-    <span>닉네임</span>
+    <span><?php echo $p_result['profile_name'] ?></span>
+    <a href="update_profile_info.php"><img src="./img/profile_edit.png" alt="프로필수정"></a>
     <br>
     <br>
     <br>
