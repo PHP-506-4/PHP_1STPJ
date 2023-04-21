@@ -91,6 +91,7 @@ else
           <input type="radio" name="list_comp_flg" id="yet" value=0  <?php if($result_info["list_comp_flg"] === "0") { echo "checked"; }?>>
           <label for="yet">미완료</label>
         </div>
+        <!-- 버튼들 -->
         <div class="update_buttons">
           <button type="submit">수정</button>
           <a href="detail_to_do_list.php?list_no=<?php echo $result_info["list_no"]?>" class="canc_button">취소</a>
