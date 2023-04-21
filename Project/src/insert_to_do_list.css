@@ -96,3 +96,6 @@ button {
     margin: 0 30px;
     display: inline-block;
 }
+input:focus, textarea:focus {
+    outline: 1px solid #D9D9D9;
+}
