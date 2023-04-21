@@ -3,6 +3,7 @@ define("DB_CON",$_SERVER["DOCUMENT_ROOT"]."/Project/src");                      
 define("URL",DB_CON."/common/db_common.php");
 define( "URL_HEADER", DB_CON."/header_to_do_list.php" );
 define( "PROFILE", DB_CON."/profile_to_do_list.php" );
+define( "FOOTER", DB_CON."/footer_to_do_list.php");
 include_once(URL);
 
 $list_no = $_GET["list_no"];
@@ -23,7 +24,6 @@ $result_title = select_list_no( $list_no );
     <link rel="stylesheet" href="./delete.css">
 </head>
 <body>
-<div class="main">
     <div class="con">
         <?php include_once(URL_HEADER);?>                                                     <!-- 헤더 영역이 정해지면 include_once로 설정  -->
         <br>
@@ -40,6 +40,6 @@ $result_title = select_list_no( $list_no );
                 </a>
         </div>
     </div>
-</div>
+    <?php include_once( FOOTER ); ?>
 </body>
 </html>

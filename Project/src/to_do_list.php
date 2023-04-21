@@ -50,99 +50,97 @@ $result_paging = select_list_info( $arr_prepare );
     </style>
 </head>
 <body>
-    <div class="main">
-        <div class="con">
-            <?php include_once( HEADER ); ?>
-            <br>
-            <?php include_once( PROFILE ) ?>
-            <div class="con1">
-                <?php include_once( GOAL )?>
-                <div class="clr">
-                        <?php
-                        foreach ($result_paging as $val)
+    <div class="con">
+        <?php include_once( HEADER ); ?>
+        <br>
+        <?php include_once( PROFILE ) ?>
+        <div class="con1">
+            <?php include_once( GOAL )?>
+            <div class="clr"> <!-- con1의 float 속성 해제하는 용 -->
+                    <?php
+                    foreach ($result_paging as $val)
+                    {
+                    ?>
+                    <a href="detail_to_do_list.php?list_no=<?php echo $val["list_no"]?>">
+                        <div class="list">
+                            
+                                <?php
+                                $comp_flg = $val["list_comp_flg"];
+                                if($comp_flg === '0' )
+                                {
+                                    ?>
+                                    <img src="./img/check.png" alt="체크 안함">
+                                <?php
+                                }
+                                else
+                                {
+                                    ?>
+                                    <img src="./img/checked.png" alt="체크 함">
+                                <?php
+                                }
+                                ?>
+                            
+                            <div class="title"><?php echo $val["list_title"]?></div>
+                            <div class="time">
+                                <?php
+                                if($val["list_start_time"]!== "" && $val["list_start_minute"]!== "")
+                                {
+                                echo sprintf("%02d",$val["list_start_time"])." : ".sprintf("%02d",$val["list_start_minute"]);
+                                ?>
+                                <span> ~ </span>
+                                <?php
+                                }
+                                ?>
+                                <?php
+                                if($val["list_end_time"]!== "" && $val["list_end_minute"]!== "")
+                                {
+                                echo sprintf("%02d",$val["list_end_time"])." : ".sprintf("%02d",$val["list_end_minute"]);
+                                }
+                                ?>
+                            </div>
+                        </div>
+                        </a>
+                    <?php
+                    }
+                    ?>
+                    <br>
+                    <div class="a">
+                    <?php
+                        if ($page_num > 1)
                         {
                         ?>
-                        <a href="detail_to_do_list.php?list_no=<?php echo $val["list_no"]?>">
-                            <div class="list">
-                                
-                                    <?php
-                                    $comp_flg = $val["list_comp_flg"];
-                                    if($comp_flg === '0' )
-                                    {
-                                        ?>
-                                        <img src="./img/check.png" alt="체크 안함">
-                                    <?php
-                                    }
-                                    else
-                                    {
-                                        ?>
-                                        <img src="./img/checked.png" alt="체크 함">
-                                    <?php
-                                    }
-                                    ?>
-                                
-                                <div class="title"><?php echo $val["list_title"]?></div>
-                                <div class="time">
-                                    <?php
-                                    if($val["list_start_time"]!== "" && $val["list_start_minute"]!== "")
-                                    {
-                                    echo sprintf("%02d",$val["list_start_time"])." : ".sprintf("%02d",$val["list_start_minute"]);
-                                    ?>
-                                    <span> ~ </span>
-                                    <?php
-                                    }
-                                    ?>
-                                    <?php
-                                    if($val["list_end_time"]!== "" && $val["list_end_minute"]!== "")
-                                    {
-                                    echo sprintf("%02d",$val["list_end_time"])." : ".sprintf("%02d",$val["list_end_minute"]);
-                                    }
-                                    ?>
-                                </div>
-                            </div>
-                            </a>
+                        <a href='to_do_list.php?page_num=<?php echo $page_num-1 ?>'class="page_button"><</a>
+                        <?php
+                        }
+                        else
+                        {
+                        ?>
+                            <a href='to_do_list.php?page_num=<?php echo $page_num ?>'class="page_button"><</a>
                         <?php
                         }
                         ?>
-                        <br>
-                        <div class="a">
                         <?php
-                            if ($page_num > 1)
+                            for( $i = 1; $i <= $max_page_num; $i++ )
                             {
-                            ?>
-                            <a href='to_do_list.php?page_num=<?php echo $page_num-1 ?>'class="page_button"><</a>
-                            <?php
-                            }
-                            else
-                            {
-                            ?>
-                                <a href='to_do_list.php?page_num=<?php echo $page_num ?>'class="page_button"><</a>
-                            <?php
-                            }
-                            ?>
-                            <?php
-                                for( $i = 1; $i <= $max_page_num; $i++ )
-                                {
-                            ?>
-                                    <a href='to_do_list.php?page_num=<?php echo $i ?>'class="page_button"><?php echo $i ?></a>
-                            <?php
-                                }
-                            ?>
-                            <?php
-                            if ($page_num < $max_page_num )
-                            {
-                            ?>
-                                <a href='to_do_list.php?page_num=<?php echo $page_num +1 ?>'class="page_button">></a>
-                            <?php
-                            }
-                            else
-                            {
-                            ?>
-                                <a href='to_do_list.php?page_num=<?php echo $page_num  ?>'class="page_button">></a>
-                            <?php
-                        }
                         ?>
-                    </div>
+                                <a href='to_do_list.php?page_num=<?php echo $i ?>'class="page_button"><?php echo $i ?></a>
+                        <?php
+                            }
+                        ?>
+                        <?php
+                        if ($page_num < $max_page_num )
+                        {
+                        ?>
+                            <a href='to_do_list.php?page_num=<?php echo $page_num +1 ?>'class="page_button">></a>
+                        <?php
+                        }
+                        else
+                        {
+                        ?>
+                            <a href='to_do_list.php?page_num=<?php echo $page_num  ?>'class="page_button">></a>
+                        <?php
+                    }
+                    ?>
                 </div>
             </div>
         </div>

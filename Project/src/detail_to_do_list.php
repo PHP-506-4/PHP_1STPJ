@@ -21,7 +21,6 @@
     <link rel="stylesheet" href="./common/css_common.css">
     <link rel="stylesheet" href="./common/css_detail.css">
 <body>
-    <div class="main">
         <div class="con">
             <?php include_once( HEADER ); ?>
             <br>
@@ -47,7 +46,6 @@
                 </div>
             </div>
         </div>
-    </div>
     <?php include_once( FOOTER ); ?>
 </body>
 </html>
