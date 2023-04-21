@@ -39,6 +39,21 @@ body{
     padding: 20px;
     text-align: center;
 }
+.pro_img{
+    width: 150px;
+    height: 150px;
+    border-radius: 80px;
+    overflow: hidden;
+    position: relative;
+}
+.pro_img>img{
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
 
 .con{
     height: 85%;

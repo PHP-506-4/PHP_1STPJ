@@ -573,4 +573,70 @@ function select_list_info_paging( &$param_arr )
 
 	return $result;
 }
+// TEST
+    function select_profile_info()
+    {
+        $sql =
+            " SELECT "
+            ."  * "
+            ." FROM "
+            ."  profile_info "
+            ;
+
+            try
+            {
+                db_conn( $conn );
+                $stmt = $conn->query( $sql );
+                $result = $stmt->fetchAll();
+            }
+            catch( Exception $e )
+            {
+                return $e->getMessage();
+            }
+            finally
+            {
+                $conn = null;
+            }
+    
+            return $result[0];
+    }
+
+
+    function update_profile_info( &$param_arr )
+    {
+        $sql =
+            " UPDATE "
+            ."  profile_info "
+            ." SET "
+            ."  profile_name = :profile_name "
+            ."  ,profile_img = :profile_img "
+            ;
+        
+            $arr_prepare =
+            array(
+                ":profile_name"	=> $param_arr["profile_name"]
+                ,":profile_img" => $param_arr["profile_img"]
+            );
+    
+        $conn = null;
+        try
+        {
+            db_conn( $conn );
+            $conn->beginTransaction();
+            $stmt = $conn->prepare( $sql );
+            $stmt->execute( $arr_prepare );
+            $conn->commit();
+        }
+        catch( Exception $e )
+        {
+            $conn->rollback();
+            return $e->getMessage();
+        }
+        finally
+        {
+            $conn = null;
+        }
+    
+        return $result;
+    }
 ?>
