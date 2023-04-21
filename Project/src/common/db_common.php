@@ -70,59 +70,12 @@
         }
     }
     
-    //------------------------------------
-    // 함수명       : select_list_no
-    // 기능         : 해당 list_no 리스트의 상세 내용 출력
-    // 파라미터     : array         &$param_no
-    // 리턴값       : array/STRING $result[0]/ERRMSG
-    //------------------------------------
-    // function select_list_no( &$param_no ) // 0419 edit 함수명
-    // {
-    //     $sql =
-    //         " SELECT "
-    //         ."  list_no "
-    //         ."  ,list_title "
-    //         ."  ,list_start_time "
-    //         ."  ,list_start_minute "
-    //         ."  ,list_end_time "
-    //         ."  ,list_end_minute "
-    //         ."  ,list_memo "
-    //         ." FROM "
-    //         ."  to_do_list_info "
-    //         ." WHERE "
-    //         ."  list_no = :list_no "
-    //         ;
-
-    //     $arr_prepare =
-    //         array(
-    //             ":list_no"   => $param_no
-    //         );
-
-    //     $conn = null;
-
-    //     try
-    //     {
-    //         db_conn( $conn );
-    //         $stmt = $conn->prepare( $sql );
-    //         $stmt->execute( $arr_prepare );
-    //         $result = $stmt->fetchAll();
-    //     }
-    //     catch (Exception $e)
-    //     {
-    //         return $e->getMessage();
-    //     }
-    //     finally
-    //     {
-    //         $param_conn = null;
-    //     }
-    //     return $result[0];
-    // }
 
     function select_list_no( &$param_no ) // 0419 edit 함수명
     {
         $sql =
             " SELECT "
-            ." * "
+            ." * " // 0420 edit 값 전체 받아오게 변경
             ." FROM "
             ."  to_do_list_info "
             ." WHERE "
