@@ -6,11 +6,11 @@ define( "PROFILE", SRC_ROOT."profile_to_do_list.php" );
 define( "FOOTER", SRC_ROOT."footer_to_do_list.php");
 include_once( URL_DB ); // db_common.php 불러옴
 
-$http_method = $_SERVER["REQUEST_METHOD"];
+$http_method = $_SERVER["REQUEST_METHOD"]; // 값이 GET 인지 POST인지 확인
 
 if($http_method === "GET") // GET값 받은거
 {
-  $list_no = 1; 
+  $list_no = 0; 
   if( array_key_exists( "list_no", $_GET ) )
   {
     $list_no = $_GET["list_no"];
@@ -55,6 +55,7 @@ else
     <!-- 헤더 -->
     <?php include_once( URL_HEADER ); ?>
     <br>
+    <!-- 프로필 -->
     <?php include_once( PROFILE ) ?>
     <div class="con1">
       <form action="" method="post">
@@ -79,7 +80,7 @@ else
           <input type="number" name="list_end_minute" id="end_min" min=00 max=59 value="<?php echo $result_info['list_end_minute']?>">
         </div>
         <div class="update_memo">
-          <!-- 메모 칸 CSS에서 resize:none 해주기! -->
+          <!-- 메모 -->
           <label for="memo">메모 :</label>
           <textarea name="list_memo" id="memo" cols="30" rows="10" placeholder="메모" ><?php echo $result_info["list_memo"]?></textarea>
         </div>
