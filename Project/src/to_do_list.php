@@ -7,24 +7,24 @@ define( "PROFILE", DB_CON."/profile_to_do_list.php" );
 define( "FOOTER", DB_CON."/footer_to_do_list.php");
 include_once(URL);
 
-if( array_key_exists( "page_num", $_GET ) ) /* $_GET에 "page_num"이 있을때 아래 조건을 실행한다. */
+if( array_key_exists( "page_num", $_GET ) )               /* $_GET에 "page_num"이 있을때 아래 조건을 실행한다. */
 {
-    $page_num = $_GET["page_num"]; /* $page_num에 $_GET에 들어있는 배열 중에서 키값이"pagd_num"인 벨류 값을 저장한다. */
+    $page_num = $_GET["page_num"];                        /* $page_num에 $_GET에 들어있는 배열 중에서 키값이"pagd_num"인 벨류 값을 저장한다. */
 }
-else    /* 위에 if문 조건이 안맞을 경우 아래 조건을 실행한다. */
+else                                                      /* 위에 if문 조건이 안맞을 경우 아래 조건을 실행한다. */
 {
-    $page_num = 1; /* $page_num에 1이라는 값을 지정한다. */
+    $page_num = 1;                                        /* $page_num에 1이라는 값을 지정한다. */
 }
 
-$limit_num = 7; /* $limit_num에 7이라는 값을 저장한다.(페이지에 표시할 최대 개수) */
+$limit_num = 7;                                           /* $limit_num에 7이라는 값을 저장한다.(페이지에 표시할 최대 개수) */
 
-$result_cnt = select_list_all_cnt();    /* $result_cnt에 DB에서 레코드의 개수를 함수(select_list_all_cnt())를 이용해서 구하고 저장한다. */
+$result_cnt = select_list_all_cnt();                      /* $result_cnt에 DB에서 레코드의 개수를 함수(select_list_all_cnt())를 이용해서 구하고 저장한다. */
 
-$max_page_num = ceil( (int)$result_cnt / $limit_num );      /* 최대 레코드 수($result_cnt)를 인트로 변환한 후 페이지에 표시할 레코드 개수($limit_num)를 나누어서 올림한것을 $max_page_num에 저장한다.  */
+$max_page_num = ceil( (int)$result_cnt / $limit_num );    /* 최대 레코드 수($result_cnt)를 인트로 변환한 후 페이지에 표시할 레코드 개수($limit_num)를 나누어서 올림한것을 $max_page_num에 저장한다.  */
 
-$offset = ( $page_num * $limit_num ) - $limit_num;      /* 몇번째 부터 레코드를 표시할것인지 구한다. */
+$offset = ( $page_num * $limit_num ) - $limit_num;   /* 몇번째 부터 레코드를 표시할것인지 구한다. */
 
-$arr_prepare =                      /* 쿼리에 요청할 조건을 넣는 어레이 */
+$arr_prepare =                                       /* 쿼리에 요청할 조건을 넣는 어레이 */
     array(
         "limit_num"	=> $limit_num
         ,"offset"	=> $offset
@@ -56,9 +56,9 @@ $result_paging = select_list_info( $arr_prepare ); /* 쿼리에 어레이를 요
         <?php include_once( PROFILE ) ?>
         <div class="con1">
             <?php include_once( GOAL )?>
-            <div class="clr"> <!-- con1의 float 속성 해제하는 용 -->
+            <div class="clr">                                 <!-- con1의 float 속성 해제하는 용 -->
                     <?php
-                    foreach ($result_paging as $val) /* $result_paging에 있는 어레이 수 만큼 $val와 같이 반복된다. */
+                    foreach ($result_paging as $val)          /* $result_paging에 있는 어레이 수 만큼 $val와 같이 반복된다. */
                     {
                     ?>
                     <a href="detail_to_do_list.php?list_no=<?php echo $val["list_no"]?>">   <!-- 리스트를 클릭하면 해당 리시트의 상세 페에지로 이동 -->
