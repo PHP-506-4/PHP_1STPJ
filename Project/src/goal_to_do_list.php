@@ -73,7 +73,7 @@
         <?php
             }?>
     <a class="edit_btn" href="goal_update.php">EDIT</a>
-</div>
+    </div>
     <br>
     <div class="comp_graph">
         <span>달성도 <?php echo $percent ?>%</span>
