@@ -43,8 +43,15 @@ input:focus {
 
 .btn_con >button{
     border: none;
-    background-color: #2F50FF
+    background-color: #2F50FF;
+    cursor:pointer;
 }
 .btn_con > a{
     background-color: #5e5e5e;
+}
+.btn_con >button:hover{
+    background-color: #7b91fd;
+}
+.btn_con >a:hover{
+    background-color: #b3b3b3;
 }

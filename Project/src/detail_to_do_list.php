@@ -36,9 +36,9 @@
                 <!-- 공부 시작, 끝 시간 출력 -->
                 <span>공부 시간</span>
                 <div class="list_d2">
-                    <span><?php echo sprintf('%02d',$result_info["list_start_time"]); ?> : </span>
-                    <span><?php echo sprintf('%02d',$result_info["list_start_minute"]); ?> ~ </span>
-                    <span><?php echo sprintf('%02d',$result_info["list_end_time"]); ?> : </span>
+                    <span><?php echo sprintf('%02d',$result_info["list_start_time"]); ?> : </span> <!-- sprintf를 사용하여 0~9시나 0~9분은 00~09로 표현 -->
+                    <span><?php echo sprintf('%02d',$result_info["list_start_minute"]); ?> ~ </span> <!-- sprintf는 서식(format)을 지정하여 문자열을 만드는 함수 -->
+                    <span><?php echo sprintf('%02d',$result_info["list_end_time"]); ?> : </span>    <!-- %02d 이렇게 쓰면 10진수(%d) 중 1자리 숫자앞에 0을 넣어준다.(10의 자리 전 까지만 0을 넣는다) -->
                     <span><?php echo sprintf('%02d',$result_info["list_end_minute"]); ?></span>
                 </div>
                 <!-- 메모 출력 -->
