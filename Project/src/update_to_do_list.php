@@ -48,7 +48,7 @@ else
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>리스트 수정 페이지</title>
   <link rel="stylesheet" href="./common/css_common.css">
-  <link rel="stylesheet" href="./update_to_do_list.css">
+  <link rel="stylesheet" href="./common/update_to_do_list.css">
 </head>
 <body>
   <div class="con">
@@ -94,8 +94,8 @@ else
         <!-- 버튼들 -->
         <div class="update_buttons">
           <button type="submit">수정</button>
-          <a href="detail_to_do_list.php?list_no=<?php echo $result_info["list_no"]?>" class="canc_button">취소</a>
-          <a href="delete_to_do_list.php?list_no=<?php echo $result_info["list_no"]?>" class="del_button">삭제</a>
+          <a href="detail_to_do_list.php?list_no=<?php echo $result_info["list_no"]?>" class="canc_button">취소</a> <!-- 클릭시 상세페이지로 이동 -->
+          <a href="delete_to_do_list.php?list_no=<?php echo $result_info["list_no"]?>" class="del_button">삭제</a> <!-- 클릭시 삭제페이지로 이동 -->
         </div>
       </form>
     </div>
