@@ -28,7 +28,7 @@ else
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./common/css_common.css">
-    <link rel="stylesheet" href="./goal_update.css">
+    <link rel="stylesheet" href="./common/goal_update.css">
 </head>
 <body>
     <div class="con">
