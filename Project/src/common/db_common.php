@@ -107,7 +107,7 @@
         }
         finally
         {
-            $param_conn = null;
+            $conn = null;
         }
         return $result[0];
     }
