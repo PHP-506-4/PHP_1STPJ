@@ -35,7 +35,7 @@ $result_title = select_list_no( $list_no );
                 <a class="check" href=" sub_delete.php?list_no=<?php echo $list_no ?>" >
                     확인                                                                <!-- 클릭시 삭제를 완료하고 리스트 페이지로 이동(삭제 페이지를 하나 더 만들어야 된다.) -->
                 </a>                                                                    <!-- 그 페이지로 넘어가서 삭제를 하고 리스트 페이지로 바로 넘어갈 수 있게 만들어야 된다. -->
-            <a class="cancle" href="detail_to_do_list.php?list_no=<?php echo $list_no ?>" >
+            <a class="cancel" href="detail_to_do_list.php?list_no=<?php echo $list_no ?>" >
                     취소                                                                <!-- 클릭시 상세 페이지로 이동(상세 페이지의 URL을 작성) -->
                 </a>
         </div>

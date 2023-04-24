@@ -1,24 +1,24 @@
-.con1{
+.con1 /* con1안에 있는 요소를 중앙으로 배치 */
+{
     text-align:center;
 }
-/* p{
-    margin: 40px auto;
-    border-radius: 20px; 0421 del -KMJ
-} */
-h2{
-    text-align: left;
-    margin: 20px 0;
+h2
+{
+    text-align: left; /* con1안에 있는 h2를 왼쪽으로 배치 */
+    margin: 20px 0; /* 위,아래 20px 양옆 0px로 설정 */
 }
-.title_p{
+.title_p /* 리스트 제목 나오는 부분 설정 */
+{
     background-color:#e3f0ff;
     width: 95%;
-    height: 70px;
+    height: 70px; 
     line-height: 70px;
     margin-top: 13vh;
     font-size: 30px;
     border-radius: 20px;
 }
-.exception_p{
+.exception_p /* 주의메세지를 표시하는 부분 설정 */
+{
     width: 40%;
     height: 50px;
     line-height: 25px;
@@ -27,7 +27,8 @@ h2{
     font-weight: 600;
 }
 .check
-,.cancle{
+,.cancel /* 확인, 취소(a Tag)공통적인 부분 설정 */
+{
     padding: 10px;
     width: 100px;
     border-radius: 5px;
@@ -38,9 +39,11 @@ h2{
     display:inline-block;
 }
 
-.check{
+.check /* 확인버튼 설정 */
+{
     background-color: #e04b4b;
 }
-.cancle{
+.cancle /* 취소버튼 설정 */
+{
     background-color: #5e5e5e;
 }
