@@ -62,87 +62,87 @@ $result_paging = select_list_info( $arr_prepare ); /* 쿼리에 어레이를 요
         <div class="con1">
             <?php include_once( GOAL )?>
             <div class="clr">                                 <!-- con1의 float 속성 해제하는 용 -->
-                    <?php
-                    foreach ($result_paging as $val)          /* $result_paging에 있는 어레이 수 만큼 $val와 같이 반복된다. */
-                    {
-                    ?>
+                <?php
+                foreach ($result_paging as $val)          /* $result_paging에 있는 어레이 수 만큼 $val와 같이 반복된다. */
+                {
+                ?>
                     <a href="detail_to_do_list.php?list_no=<?php echo $val["list_no"]?>">   <!-- 리스트를 클릭하면 해당 리시트의 상세 페에지로 이동 -->
                         <div class="list">
-                                <?php                                                       /* ----------------------foreach에서 돌아가는 if문------------------ */
-                                $comp_flg = $val["list_comp_flg"];                          /* 완료플레그를 $comp_flg에 저장한다 */
-                                if($comp_flg === '0' )                                      /* 만약 $comp_flg에 '0'이 들어있으면 아래조건(체크 안한 이미지를 입력)을 실행한다. */
-                                {
-                                    ?>
-                                    <img src="./img/check.png" alt="체크 안함">
-                                <?php
-                                }
-                                else                                                        /*$comp_flg에 '0'이 아닐경우 아래조건(체크한 이미지를 입력)을 실행한다. */
-                                {
-                                    ?>
-                                    <img src="./img/checked.png" alt="체크 함">
-                                <?php
-                                }                                                           /* -------------------------------------------------- */
-                                ?>                                                          
+                            <?php                                                       /* ----------------------foreach에서 돌아가는 if문------------------ */
+                            $comp_flg = $val["list_comp_flg"];                          /* 완료플레그를 $comp_flg에 저장한다 */
+                            if($comp_flg === '0' )                                      /* 만약 $comp_flg에 '0'이 들어있으면 아래조건(체크 안한 이미지를 입력)을 실행한다. */
+                            {
+                            ?>
+                                <img src="./img/check.png" alt="체크 안함">
+                            <?php
+                            }
+                            else                                                        /*$comp_flg에 '0'이 아닐경우 아래조건(체크한 이미지를 입력)을 실행한다. */
+                            {
+                            ?>
+                                <img src="./img/checked.png" alt="체크 함">
+                            <?php
+                            }                                                           /* -------------------------------------------------- */
+                            ?>                                                          
                             
                             <div class="title"><?php echo $val["list_title"]?></div>        <!-- 제목출력 -->
                             <div class="time">                                                                                      
                                 <?php                                                                                                   /* -----------------시간 표시여부를 정하는 if문------------- */
                                 if($val["list_start_time"]!== "" && $val["list_start_minute"]!== "")                                    /* $val["list_start_time"], $val["list_start_minute"]에 들어있는 값이 빈문자열이면 아래 조건을 표시 */
                                 {
-                                echo sprintf("%02d",$val["list_start_time"])." : ".sprintf("%02d",$val["list_start_minute"]);           /* 시간과 분이 한자리수 일 때 앞에 0을 붙여서 출력한다. */
+                                    echo sprintf("%02d",$val["list_start_time"])." : ".sprintf("%02d",$val["list_start_minute"]);           /* 시간과 분이 한자리수 일 때 앞에 0을 붙여서 출력한다. */
                                 ?>
-                                <span> ~ </span>
+                                    <span> ~ </span>
                                 <?php
                                 }
                                 ?>
                                 <?php
                                 if($val["list_end_time"]!== "" && $val["list_end_minute"]!== "")                                        /* $val["list_end_time"], $val["list_end_minute"]에 들어있는 값이 빈문자열이면 아래 조건을 표시 */
                                 {
-                                echo sprintf("%02d",$val["list_end_time"])." : ".sprintf("%02d",$val["list_end_minute"]);               /* 시간과 분이 한자리수 일 때 앞에 0을 붙여서 출력한다. */
+                                    echo sprintf("%02d",$val["list_end_time"])." : ".sprintf("%02d",$val["list_end_minute"]);               /* 시간과 분이 한자리수 일 때 앞에 0을 붙여서 출력한다. */
                                 }                                                                                                       /* ------------------------------------------------------- */
                                 ?>                                                                                                      
                             </div>
                         </div>
-                        </a>
+                    </a>
+                <?php
+                }
+                ?>
+                <br>
+                <div class="a">
+                    <?php                                                                                                           /*--------------------- 페이지 이동 방법 -----------------*/
+                    if ($page_num > 1)                                                                                          /* 현재페이지가 1보다 클때 아래조건을 실행한다. */
+                    {
+                    ?>
+                        <a href='to_do_list.php?page_num=<?php echo $page_num-1 ?>'class="page_button"><</a>                        <!-- "  <  "을 누르면 현재페이지번호에서 1을 뺀 페이지로 이동한다. -->
+                    <?php
+                    }
+                    else                                                                                                        /* 현재 페이지가 1보다 크지않을때는 아래 조건을 실행한다. */
+                    {
+                    ?>
+                        <a href='to_do_list.php?page_num=<?php echo $page_num ?>'class="page_button"><</a>                      <!-- "  <  "를 눌러도 현재페이지에 머무른다. -->
                     <?php
                     }
                     ?>
-                    <br>
-                    <div class="a">
-                    <?php                                                                                                           /*--------------------- 페이지 이동 방법 -----------------*/
-                        if ($page_num > 1)                                                                                          /* 현재페이지가 1보다 클때 아래조건을 실행한다. */
-                        {
-                        ?>
-                        <a href='to_do_list.php?page_num=<?php echo $page_num-1 ?>'class="page_button"><</a>                        <!-- "  <  "을 누르면 현재페이지번호에서 1을 뺀 페이지로 이동한다. -->
-                        <?php
-                        }
-                        else                                                                                                        /* 현재 페이지가 1보다 크지않을때는 아래 조건을 실행한다. */
-                        {
-                        ?>
-                            <a href='to_do_list.php?page_num=<?php echo $page_num ?>'class="page_button"><</a>                      <!-- "  <  "를 눌러도 현재페이지에 머무른다. -->
-                        <?php
-                        }
-                        ?>
-                        <?php
-                            for( $i = 1; $i <= $max_page_num; $i++ )                                                                 /* 1부터 위(23행)에서 구한 $max_page_num의 수만큼 for문을 돌린다. */
-                            {
-                        ?>
-                                <a href='to_do_list.php?page_num=<?php echo $i ?>'class="page_button"><?php echo $i ?></a>          <!-- 포문이 돌아가면서 1부터 $max_page_num의 수까지 페이지 이동 버튼을 만든다. -->
-                        <?php
-                            }
-                        ?>
-                        <?php
-                        if ($page_num < $max_page_num )                                                                             /* $page_num이 $max_page_num보다 작을때는 아래조건을 실행한다. */
-                        {
-                        ?>
-                            <a href='to_do_list.php?page_num=<?php echo $page_num +1 ?>'class="page_button">></a>                   <!-- "  >  "을 누르면 현재페이지번호에서 1을 더한 페이지로 이동한다. -->
-                        <?php
-                        }
-                        else                                                                                                         /* $page_num이 $max_page_num보다 작지않을때에는 아래조건을 실행한다. */
-                        {
-                        ?>
-                            <a href='to_do_list.php?page_num=<?php echo $page_num  ?>'class="page_button">></a>                     <!-- "  >  "을 눌러도 현재페이지에 머무른다. -->
-                        <?php
+                    <?php
+                    for( $i = 1; $i <= $max_page_num; $i++ )                                                                 /* 1부터 위(23행)에서 구한 $max_page_num의 수만큼 for문을 돌린다. */
+                    {
+                    ?>
+                        <a href='to_do_list.php?page_num=<?php echo $i ?>'class="page_button"><?php echo $i ?></a>          <!-- 포문이 돌아가면서 1부터 $max_page_num의 수까지 페이지 이동 버튼을 만든다. -->
+                    <?php
+                    }
+                    ?>
+                    <?php
+                    if ($page_num < $max_page_num )                                                                             /* $page_num이 $max_page_num보다 작을때는 아래조건을 실행한다. */
+                    {
+                    ?>
+                        <a href='to_do_list.php?page_num=<?php echo $page_num +1 ?>'class="page_button">></a>                   <!-- "  >  "을 누르면 현재페이지번호에서 1을 더한 페이지로 이동한다. -->
+                    <?php
+                    }
+                    else                                                                                                         /* $page_num이 $max_page_num보다 작지않을때에는 아래조건을 실행한다. */
+                    {
+                    ?>
+                        <a href='to_do_list.php?page_num=<?php echo $page_num  ?>'class="page_button">></a>                     <!-- "  >  "을 눌러도 현재페이지에 머무른다. -->
+                    <?php
                     }
                     ?>
                 </div>
