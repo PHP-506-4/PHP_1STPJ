@@ -11,7 +11,7 @@ $http_method = $_SERVER["REQUEST_METHOD"]; // 값이 GET 인지 POST인지 확�
 if($http_method === "GET") // GET값 받은거
 {
   $list_no = 0; 
-  if( array_key_exists( "list_no", $_GET ) )
+  if( array_key_exists( "list_no", $_GET ) ) // GET 값의 key가 존재할때, 리스트 내용 가져오기
   {
     $list_no = $_GET["list_no"];
   }
