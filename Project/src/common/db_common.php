@@ -155,7 +155,6 @@
             $conn->beginTransaction();
             $stmt = $conn->prepare( $sql );
             $stmt->execute( $arr_prepare );
-            $result_cnt = $stmt->rowCount();
             $conn->commit();
         }
         catch( Exception $e )
@@ -310,9 +309,13 @@
             $stmt = $conn->prepare( $sql );
             $stmt->execute( $arr_prepare );
             $result_cnt = $stmt->rowCount();
+            if($result_cnt !== 1)
+            {
+                throw new Exception("카운트 이상");
+            }
             $conn->commit();
         }
-        catch ( exception $e)
+        catch ( Exception $e)
         {
             $conn->rollback();
             return $e->getMessage();

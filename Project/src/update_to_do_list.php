@@ -32,7 +32,6 @@ else
         ,"list_no"             => $arr_post["list_no"]
     );
   
-  $result_cnt = update_list( $arr_info );
   header("Location: detail_to_do_list.php?list_no=".$arr_post["list_no"]); // 수정 완료 후 해당 게시글 번호의 detail 페이지로 넘어가기
   exit();
 }
