@@ -38,28 +38,34 @@
         <br>
         <?php include_once( PROFILE ) ?>                                                                                                    <!-- 프로필 출력 -->
         <div class="con1">
+            <!-- insert 페이지 -->
             <h2>리스트 작성</h2>
             <form method="post" action="insert_to_do_list.php">                                                                             <!-- input 값을 POST방식으로 전달 -->
+                <!-- 게시글 번호(히든), 게시글 제목 -->
                 <input type="hidden" name="list_no" class="list_no">
                 <input type="text" name="list_title" class="list_title" placeholder="제목" required autofocus>
                 <br>
                 <div class="con2">
                     <div class=con_start_time>
+                        <!-- 시작 시간과 분 -->
                         <span>시작 시간</span>
                         <input type="number" name="list_start_time" class="list_start_time" id="list_start_time" min="0" max="23"> :
                         <input type="number" name="list_start_minute" class="list_start_minute" id="list_start_minute" min="0" max="59">
                     </div>
                     <div class=con_end_time>
+                        <!-- 종료 시간과 분 -->
                         <span>종료 시간</span>
                         <input type="number" name="list_end_time" class="list_end_time" id="list_end_time" min="0" max="23"> :
                         <input type="number" name="list_end_minute" class="list_end_minute" id="list_end_minute" min="0" max="59">
                     </div>
                 </div>
+                <!-- 리스트 메모 -->
                 <textarea name="list_memo" class="list_memo" placeholder="메모"></textarea>
                 <br>
                 <div class="con_btn">
-                <button type="submit" class="button_1">추가</button>                                                                        <!-- form 값 전송 버튼 -->
-                <button type="button" class="button_2" onclick="location.href='to_do_list.php'">취소</button>
+                <!-- 추가, 취소 버튼 -->
+                    <button type="submit" class="button_1">추가</button>                                                                        <!-- form 값 전송 버튼 -->
+                    <button type="button" class="button_2" onclick="location.href='to_do_list.php'">취소</button>
                 </div>
             </form>
         </div>

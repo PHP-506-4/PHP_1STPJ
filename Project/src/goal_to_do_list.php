@@ -6,15 +6,15 @@
     $goal_date = "";
     $g_title = "";
 
-    if ( empty($result["goal_title"]) ) {                                              // 초깃값일때
+    if ( empty($result["goal_title"]) ) {                                              // 목표가 초깃값일때 출력할 내용
         $g_title = "목표를 정해주세요";
         $d_day ="";
     }
     else {
-        $g_title = $result["goal_title"];
+        $g_title = $result["goal_title"];                   // 목표가 초깃값이 아닐 때 제목과 D-DAY 혹은 날짜 출력
         $goal_date = $result["goal_date"];
         $d_day = floor((strtotime($goal_date) - strtotime(date('y-m-d'))) / 86400 );    // D-DAY 계산
-        $d_day = intval($d_day);
+        $d_day = intval($d_day); // if문 조건문 비교연산자( === ->속성까지 같아야함)사용하기 위해 속성을 float에서 int로 바꿔준다
     }
 
     $percent = comp_percent();              // 달성도 계산
@@ -64,7 +64,7 @@
         
                 <?php
             }
-            else                                                   // D-DAY 지났을 때 월 일만 출력
+            else                                                   // D-DAY 지났을 때 월-일만 출력
             {
                 $result_d = substr( $goal_date, 5 );?>
             <span class=d_past><?php echo $g_title?></span>
@@ -78,7 +78,7 @@
     <div class="comp_graph">
         <span>달성도 <?php echo $percent ?>%</span>
         <div class=graph>
-            <?php for ($i=0; $i <= $percent ; $i++)     // 달성도 그래프 그리는 부분
+            <?php for ($i=0; $i <= $percent ; $i++)     // 달성도만큼 그래프 그리는 부분
             { ?>
                 <div class=per></div>
             <?php

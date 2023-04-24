@@ -3,7 +3,6 @@
 ?>
 
 <div class=p_con>
-    <!-- <img src="./img/profile.png" alt="프로필"> -->
     <div class="pro_img">
         <img src="./img/<?php echo $p_result['profile_img']?>" alt="프로필">
     </div>
