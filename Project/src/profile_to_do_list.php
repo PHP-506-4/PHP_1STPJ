@@ -1,9 +1,9 @@
 <?php
-    $p_result = select_profile_info();
+    $p_result = select_profile_info(); // db에서 정보 불러와서 변수에 저장
 ?>
 
 <div class=p_con>
-    <div class="pro_img">
+    <div class="pro_img"> // 변수에 담긴 값을 이용해서 이미지와 프로필이름을 출력
         <img src="./img/<?php echo $p_result['profile_img']?>" alt="프로필">
     </div>
     <br>
@@ -27,7 +27,7 @@
     <br>
     <br>
     <br>
-    <?php
+    <?php // 명언 30개
     $arr_random = 
         array(
             "인생은 본래 녹록지 않다. 하지만 멍청한 사람에게는 더욱 녹록지 않다."
