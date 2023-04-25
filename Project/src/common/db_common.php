@@ -1,4 +1,6 @@
 <?php
+//&& : 수정!! ERRMSG 같은 함수 속성 수정필요!!
+
     //---------------------------------
     //함수명    : db_conn
     //기능      : php를 db에 연결
@@ -116,7 +118,7 @@
     // 함수명	: update_list
     // 기능		: DB update
     // 파라미터	: Array     &$param_arr
-    // 리턴값	: INT
+    // 리턴값	: STRING    ERRMSG
     // ---------------------------------
     
     function update_list( &$param_arr )
@@ -166,15 +168,13 @@
         {
             $conn = null;
         }
-
-        return $result_cnt;
     }
 
 // ---------------------------------
     // 함수명	: select_list_info
     // 기능		: 페이지에 표시할 리스트 불러옴
     // 파라미터	: 없음
-    // 리턴값	: 없음
+    // 리턴값	: 없음 //&&
     // ---------------------------------
 
     function select_list_info(&$param_arr)
@@ -267,7 +267,7 @@
     // 함수명       : insert_to_do_list
     // 기능         : 리스트의 값 추가
     // 파라미터     : array       $param_no
-    // 리턴값       :  
+    // 리턴값       :  //&&
     //------------------------------------
     function insert_to_do_list_info( &$param_arr )
     {
@@ -616,7 +616,7 @@ function select_list_info_paging( &$param_arr )
             $conn = null;
         }
     
-        return $result;
+        return $result; // &&
     }
 
     // ---------------------------------
