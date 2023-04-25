@@ -43,7 +43,7 @@ h2
 {
     background-color: #e04b4b;
 }
-.check:hover
+.check:hover  /* 확인버튼을 호버했을때 */
 {
     background-color: #e47979;
 }
@@ -51,7 +51,7 @@ h2
 {
     background-color: #5D5D5D;
 }
-.cancel:hover
+.cancel:hover  /* 취소버튼을 호버했을때 */
 {
     background-color: #868686;
 }

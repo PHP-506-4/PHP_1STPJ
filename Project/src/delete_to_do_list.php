@@ -8,7 +8,7 @@ include_once(URL);
 
 $list_no = $_GET["list_no"];                            
 
-$result_title = select_list_no( $list_no );                             /* get으로 받은 list_no를 조회 */
+$result_title = select_list_no( $list_no );                                                     /* get으로 받은 list_no를 조회 */
 
 ?>
 
@@ -18,7 +18,6 @@ $result_title = select_list_no( $list_no );                             /* get�
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="연결할 CSS파일 경로">
     <title>삭제 페이지</title>
     <link rel="stylesheet" href="./common/css_common.css">
     <link rel="stylesheet" href="./delete.css">

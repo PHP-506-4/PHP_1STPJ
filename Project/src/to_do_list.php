@@ -20,7 +20,7 @@ $limit_num = 7;                                           /* $limit_num에 7이�
 
 $result_cnt = select_list_all_cnt();                      /* $result_cnt에 DB에서 레코드의 개수를 함수(select_list_all_cnt())를 이용해서 구하고 저장한다. */
 
-$max_page_num = ceil( (int)$result_cnt / $limit_num );    /* 최대 레코드 수($result_cnt)를 인트로 변환한 후 페이지에 표시할 레코드 개수($limit_num)를 나누어서 올림한것을 $max_page_num에 저장한다.  */
+$max_page_num = ceil($result_cnt / $limit_num );    /* 최대 레코드 수($result_cnt)를 인트로 변환한 후 페이지에 표시할 레코드 개수($limit_num)를 나누어서 올림한것을 $max_page_num에 저장한다.  */
 
 $offset = ( $page_num * $limit_num ) - $limit_num;   /* 몇번째 부터 레코드를 표시할것인지 구한다. */
 
@@ -58,7 +58,7 @@ $result_paging = select_list_info( $arr_prepare ); /* 쿼리에 어레이를 요
             <?php include_once( GOAL )?>
             <div class="clr">                                 <!-- con1의 float 속성 해제하는 용 -->
                 <?php
-                foreach ($result_paging as $val)          /* $result_paging에 있는 어레이 수 만큼 $val와 같이 반복된다. */
+                foreach ($result_paging as $val)          /* $result_paging에 있는 어레이 수 만큼 반복된다. */
                 {
                 ?>
                     <a href="detail_to_do_list.php?list_no=<?php echo $val["list_no"]?>">   <!-- 리스트를 클릭하면 해당 리시트의 상세 페에지로 이동 -->
