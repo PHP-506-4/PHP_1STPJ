@@ -2,10 +2,12 @@
     height: 100%;
 }
 
+/* 제목 margin */
 h2 {
     margin: 20px 0;
 }
 
+/* 중앙 정렬, 위치 조정 */
 form {
     height: 50%;
     text-align: center;
@@ -13,33 +15,38 @@ form {
     top: 10%;
 }
 
+/* 라벨 안보이게 */
 form>label {
     display: none;
 }
 
+/* input 디자인 */
 form>input {
     border: none;
     width: 100%;
     background-color: #E3F0FF;
     padding: 15px;
-    border: none;
     border-radius: 20px;
     font-size: 15px;
 }
 
+/* input focus될때 border 색 변경 */
 form>input:focus {
     outline: 1px solid #D9D9D9;
 }
 
+/* input, button 글꼴 크기 변경 */
 form>input
 ,.buttons>button {
     font-size: 18px;
 }
 
+
 #goal_title {
     margin-bottom: 15px;
 }
 
+/* a태그가 inline이어서 inline block 으로 변경 */
 .buttons>a {
     display: inline-block;
 }
@@ -48,6 +55,7 @@ form>input
     margin-right: 50px;
 }
 
+/* 버튼, a태그 공통 디자인 */
 .buttons>button
 ,.buttons>a {
     padding: 10px;
@@ -60,6 +68,7 @@ form>input
     cursor: pointer;
 }
 
+/* 버튼 위치 조정 */
 .buttons {
     position: absolute;
     bottom: 0;
@@ -67,6 +76,7 @@ form>input
     transform: translate(-50%, 0);
 }
 
+/* 버튼 */
 .buttons>button {
 background-color: #2F50FF;
 }

@@ -10,30 +10,18 @@ $http_method = $_SERVER["REQUEST_METHOD"]; // 값이 GET 인지 POST인지 확�
 
 if($http_method === "GET") // GET값 받은거
 {
-  $list_no = 0; 
-  if( array_key_exists( "list_no", $_GET ) ) // GET 값의 key가 존재할때, 리스트 내용 가져오기
+  $list_no = 0; // 변수 생성
+  if( array_key_exists( "list_no", $_GET ) ) // 상세 페이지에서 받아온 GET 값에서 key 이름이 "list_no" 가 있는지 유무 확인
   {
-    $list_no = $_GET["list_no"];
+    $list_no = $_GET["list_no"]; // 받아온 GET 값 중에 "list_no" key값이 있으면,  key값이 "list_no" 인 value 값을 변수에 저장
   }
-  $result_info = select_list_no( $list_no );
+  $result_info = select_list_no( $list_no ); // list_no에 해당하는 정보를 가져와서 변수에 저장
 }
 else
 {
-  $arr_post = $_POST; // POST값 보낼거
-  $arr_info =
-    array(
-      "list_title"             => $arr_post["list_title"]
-        ,"list_memo"           => $arr_post["list_memo"]
-        ,"list_comp_flg"       => $arr_post["list_comp_flg"]
-        ,"list_start_time"     => $arr_post["list_start_time"]
-        ,"list_start_minute"   => $arr_post["list_start_minute"]
-        ,"list_end_time"       => $arr_post["list_end_time"]
-        ,"list_end_minute"     => $arr_post["list_end_minute"]
-        ,"list_no"             => $arr_post["list_no"]
-    );
-  
-  update_list($arr_info);
-  header("Location: detail_to_do_list.php?list_no=".$arr_post["list_no"]); // 수정 완료 후 해당 게시글 번호의 detail 페이지로 넘어가기
+  $arr_post = $_POST; // submit버튼 눌렀을 때 POST방식으로 값을 받아서 변수 저장
+  update_list($arr_post); // 함수에 배열을 보내서 db에 내용 변경
+  header("Location: detail_to_do_list.php?list_no=".$arr_post["list_no"]); // submit 버튼 눌러서 수정 완료 후 수정된 게시글 번호의 detail 페이지로 넘어가기
   exit();
 }
 
@@ -52,15 +40,15 @@ else
 </head>
 <body>
   <div class="con">
-    <!-- 헤더 -->
+    <!-- 헤더 --> <!-- 헤더랑 프로필 include once로 파일을 연결 -->
     <?php include_once( URL_HEADER ); ?>
     <br>
     <!-- 프로필 -->
     <?php include_once( PROFILE ) ?>
     <div class="con1">
-      <form action="" method="post">
-        <!-- hidden 게시글 번호 -->
-        <input type="hidden" name="list_no" value="<?php echo $result_info["list_no"]?>"> <!-- list_no 화면에 표시할 필요는 없지만 해당 번호의 정보를 가져와야함으로 hidden을 사용해줌 -->
+      <form action="" method="post">  <!-- post로 값을 넘겨줌 -->
+        <!-- hidden 게시글 번호 -->  <!-- post로 넘겨줄때 name에 적은 값이 key가 되고 value에 적은 값이 value가 됨 -->
+        <input type="hidden" name="list_no" value="<?php echo $result_info["list_no"]?>"> <!-- list_no 화면에 표시할 필요는 없지만 해당 번호의 정보를 가져오고 post로 정보를 보내주려면 list_no가 필요하기 때문에 hidden을 사용해줌 -->
         <div class="update_title">
           <h2>리스트 수정</h2>
         </div>
@@ -71,7 +59,7 @@ else
         </div>
         <div class="update_time">
           <!-- 시작 시간 -->
-          <label for="start_time">시작 시간</label>
+          <label for="start_time">시작 시간</label> <!-- min, max값 적용 -->
           <input  type="number" name="list_start_time" id="start_time" min=00 max=23 value="<?php echo $result_info['list_start_time']?>"> :
           <input  type="number" name="list_start_minute" id="start_min" min=00 max=59 value="<?php echo $result_info['list_start_minute']?>">
           <!-- 종료 시간 -->
@@ -85,7 +73,7 @@ else
           <textarea name="list_memo" id="memo" cols="30" rows="10" placeholder="메모" ><?php echo $result_info["list_memo"]?></textarea>
         </div>
         <div class="update_radio">
-          <!-- 라디오 버튼 -->
+          <!-- 라디오 버튼 --> <!-- 이미 완료 된 리스트일 경우 완료에 체크 돼있음, 미완료 리스트일 경우 미완료에 체크 돼있음 -->
           <input type="radio" name="list_comp_flg" id="done" value=1 <?php if($result_info["list_comp_flg"] === "1") { echo "checked"; }?>>
           <label for= "done">완료</label>
           <input type="radio" name="list_comp_flg" id="yet" value=0  <?php if($result_info["list_comp_flg"] === "0") { echo "checked"; }?>>
