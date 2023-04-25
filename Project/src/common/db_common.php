@@ -41,13 +41,13 @@
     {
         $sql =
             " DELETE FROM "
-            ." to_do_list_info " //---------------테이블 명 정해지면 수정
+            ." to_do_list_info "
             ." WHERE "
-            ." list_no = :list_no" //--------------------리스트 넘버(넘어오는 값)이 정해지면 수정
+            ." list_no = :list_no"
             ;
         $arr_prepare =
                 array(
-                    ":list_no" => $param_no["list_no"] //-----------------------리스트 넘버(넘어오는 값)이 정해지면 수정
+                    ":list_no" => $param_no["list_no"]
                 );
         $conn=null;
 

@@ -30,8 +30,8 @@ $result_title = select_list_no( $list_no );                             /* get�
         <?php include_once( PROFILE ) ?>                                                                <!-- 프로필부분 연결 -->
         <div class="con1">
             <h2>리스트 삭제</h2>
-            <p class="title_p"><?php echo $result_title["list_title"] ?></p>                                                          <!-- GET으로 넘어오는 값을 받아서 해당 list_no의 list_title을 화면에 표시 -->
-            <p class="exception_p">이 리스트를 삭제합니다.<br>동의 하시면 확인을 눌러 주세요.</p>                     <!-- 주의 메세지 -->
+            <p class="title_p"><?php echo $result_title["list_title"] ?></p>            <!-- GET으로 넘어오는 값을 받아서 해당 list_no의 list_title을 화면에 표시 -->
+            <p class="exception_p">이 리스트를 삭제합니다.<br>동의 하시면 확인을 눌러 주세요.</p>          <!-- 주의 메세지 -->
                 <a class="check" href=" sub_delete.php?list_no=<?php echo $list_no ?>" >
                     확인                                                                <!-- sub_delete.php로 가서 삭제하고 to_do_list로 이동 -->
                 </a>

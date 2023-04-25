@@ -43,7 +43,15 @@ h2
 {
     background-color: #e04b4b;
 }
+.check:hover
+{
+    background-color: #e47979;
+}
 .cancel /* 취소버튼 설정 */
 {
-    background-color: #5e5e5e;
+    background-color: #5D5D5D;
+}
+.cancel:hover
+{
+    background-color: #868686;
 }

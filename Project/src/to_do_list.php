@@ -48,11 +48,6 @@ $result_paging = select_list_info( $arr_prepare ); /* 쿼리에 어레이를 요
     <link rel="stylesheet" href="./common/css_common.css">
     <link rel="stylesheet" href="./common/css_goal_to_do_list.css">
     <link rel="stylesheet" href="./common/css_to_do_list.css">
-    <style>
-        .a{
-            text-align: center;
-        }
-    </style>
 </head>
 <body>
     <div class="con">

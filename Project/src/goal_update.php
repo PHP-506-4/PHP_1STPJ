@@ -42,7 +42,7 @@ else
                 <input type="text" name="goal_title" id="goal_title" required value="<?php echo $result["goal_title"]?>" autofocus>
                 <br>
                 <label for="goal_date">날짜</label>
-                <input type="date" name="goal_date" id="goal_date" required value="<?php echo $result["goal_date"]?>">
+                <input type="date" name="goal_date" id="goal_date" value="<?php echo $result["goal_date"]?>">
                 <br>
                 <div class="buttons">
                     <button type="submit">수정</button>

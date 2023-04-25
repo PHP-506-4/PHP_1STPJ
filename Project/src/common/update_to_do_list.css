@@ -133,9 +133,9 @@ input:focus
 }
 
 .update_buttons>.del_button {
-    background-color: #c44040;
+    background-color: #e04b4b;
 }
 
 .update_buttons>.del_button:hover {
-    background-color: #c76161;
+    background-color: #e47979;
 }
