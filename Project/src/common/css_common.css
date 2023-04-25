@@ -75,6 +75,10 @@ span{
 
 }
 
+.ran_con {
+    transform: translate(0, 250px);
+}
+
 .con1{
     padding: 10px 50px;
     margin-left: 50px;
