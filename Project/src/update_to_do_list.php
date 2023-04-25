@@ -20,7 +20,7 @@ if($http_method === "GET") // GET값 받은거
 else
 {
   $arr_post = $_POST; // submit버튼 눌렀을 때 POST방식으로 값을 받아서 변수 저장
-  update_list($arr_post); // 함수에 배열을 보내서 db에 내용 변경
+  update_list($arr_post); // 함수 파라미터로 변수를 적용해줘서 db에 내용 변경
   header("Location: detail_to_do_list.php?list_no=".$arr_post["list_no"]); // submit 버튼 눌러서 수정 완료 후 수정된 게시글 번호의 detail 페이지로 넘어가기
   exit();
 }
