@@ -76,7 +76,7 @@
     // 함수명	: select_list_no
     // 기능		: list_no에 해당하는 값들 출력
     // 파라미터	: Array       &$param_no
-    // 리턴값	: Array
+    // 리턴값	: Array/String  $result[0]/ERRMSG
     // ---------------------------------
     function select_list_no( &$param_no ) // 0419 edit 함수명
     {
@@ -174,7 +174,7 @@
     // 함수명	: select_list_info
     // 기능		: 페이지에 표시할 리스트 불러옴
     // 파라미터	: 없음
-    // 리턴값	: 없음 //&&
+    // 리턴값	: Array/String  $result/ERRMSG
     // ---------------------------------
 
     function select_list_info(&$param_arr)
@@ -222,7 +222,7 @@
     // 함수명	: select_goal_info
     // 기능		: 페이지에 표시할 목표 불러옴
     // 파라미터	: 없음
-    // 리턴값	: array/STRING      $result/$result, ERRMSG
+    // 리턴값	: array/STRING      $result/$result, ERRMSG &&
     // ---------------------------------
 
     function select_goal_info()
@@ -370,7 +370,7 @@
     // 함수명   : select_list_all_cnt
     // 기능     : 모든 리스트의 갯수를 센다
     // 파라미터	: 없음
-    // 리턴값	: array/STRING      $result[0]/ERRMSG
+    // 리턴값	: array/STRING      $result[0]["cnt"]/ERRMSG
     //--------------------------------------
     function select_list_all_cnt()
     {
@@ -405,7 +405,7 @@
     // 함수명   : select_list_comp_cnt
     // 기능     : 수행완료한 리스트의 갯수를 센다
     // 파라미터	: 없음
-    // 리턴값	: array/STRING      $result[0]/ERRMSG
+    // 리턴값	: array/STRING      $result[0]["cnt"]/ERRMSG
     //--------------------------------------
     function select_list_comp_cnt()
     {
@@ -455,7 +455,7 @@
     // 함수명	: update_goal
     // 기능		: DB update
     // 파라미터	: Array     &$param_arr
-    // 리턴값	: INT
+    // 리턴값	: 없음
     // ---------------------------------
     
     function update_goal( &$param_arr )
