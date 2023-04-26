@@ -8,9 +8,9 @@
     
     include_once( URL );
 
-$rqt_mtd = $_SERVER["REQUEST_METHOD"];
+$rqt_mtd = $_SERVER["REQUEST_METHOD"];      // $_SERVER["REQUEST_METHOD"] 사용해서 데이터 post로 받아왔는지 확인
 
-if ($rqt_mtd === "POST") {
+if ($rqt_mtd === "POST") {                  // post 형식으로 값이 넘어왔을때
     $arr_post = $_POST;
     update_profile_info( $arr_post );
     header("Location: to_do_list.php");
@@ -18,7 +18,7 @@ if ($rqt_mtd === "POST") {
 }
 else
 {
-    $result = select_profile_info();
+    $result = select_profile_info();        // 값이 post형식으로 넘어가지 않으면 프로필 정보 출력하기 위해서 함수 사용
 }
 
 

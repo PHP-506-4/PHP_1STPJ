@@ -1,5 +1,5 @@
 <?php
-    $p_result = select_profile_info(); // db에서 정보 불러와서 변수에 저장
+    $p_result = select_profile_info(); // 이미지, 프로필이름을 불러와서 변수에 저장
 ?>
 
 <div class=p_con>
