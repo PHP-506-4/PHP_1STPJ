@@ -3,7 +3,7 @@
 ?>
 
 <div class=p_con>
-    <div class="pro_img"> // 변수에 담긴 값을 이용해서 이미지와 프로필이름을 출력
+    <div class="pro_img"> <!-- 변수에 담긴 값을 이용해서 이미지와 프로필이름을 출력 -->
         <img src="./img/<?php echo $p_result['profile_img']?>" alt="프로필">
     </div>
     <br>
