@@ -1,6 +1,4 @@
 <?php
-//&& : 수정!! ERRMSG 같은 함수 속성 수정필요!!
-
     //---------------------------------
     //함수명    : db_conn
     //기능      : php를 db에 연결
@@ -222,7 +220,7 @@
     // 함수명	: select_goal_info
     // 기능		: 페이지에 표시할 목표 불러옴
     // 파라미터	: 없음
-    // 리턴값	: array/STRING      $result/$result, ERRMSG &&
+    // 리턴값	: array/STRING      $result/ERRMSG
     // ---------------------------------
 
     function select_goal_info()
@@ -615,8 +613,6 @@ function select_list_info_paging( &$param_arr )
         {
             $conn = null;
         }
-    
-        return $result; // &&
     }
 
     // ---------------------------------
