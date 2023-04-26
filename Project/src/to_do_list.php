@@ -108,13 +108,13 @@ $result_paging = select_list_info( $arr_prepare ); /* 쿼리에 어레이를 요
                     if ($page_num > 1)                                                                                          /* 현재페이지가 1보다 클때 아래조건을 실행한다. */
                     {
                     ?>
-                        <a href='to_do_list.php?page_num=<?php echo $page_num-1 ?>'class="page_button"><</a>                        <!-- "  <  "을 누르면 현재페이지번호에서 1을 뺀 페이지로 이동한다. -->
+                        <a href='to_do_list.php?page_num=<?php echo $page_num-1 ?>'class="page_button"> < </a>                        <!-- "  <  "을 누르면 현재페이지번호에서 1을 뺀 페이지로 이동한다. -->
                     <?php
                     }
                     else                                                                                                        /* 현재 페이지가 1보다 크지않을때는 아래 조건을 실행한다. */
                     {
                     ?>
-                        <a href='to_do_list.php?page_num=<?php echo $page_num ?>'class="page_button"><</a>                      <!-- "  <  "를 눌러도 현재페이지에 머무른다. -->
+                        <a href='to_do_list.php?page_num=<?php echo $page_num ?>'class="page_button"> < </a>                      <!-- "  <  "를 눌러도 현재페이지에 머무른다. -->
                     <?php
                     }
                     ?>
@@ -130,13 +130,13 @@ $result_paging = select_list_info( $arr_prepare ); /* 쿼리에 어레이를 요
                     if ($page_num < $max_page_num )                                                                             /* $page_num이 $max_page_num보다 작을때는 아래조건을 실행한다. */
                     {
                     ?>
-                        <a href='to_do_list.php?page_num=<?php echo $page_num +1 ?>'class="page_button">></a>                   <!-- "  >  "을 누르면 현재페이지번호에서 1을 더한 페이지로 이동한다. -->
+                        <a href='to_do_list.php?page_num=<?php echo $page_num +1 ?>'class="page_button"> > </a>                   <!-- "  >  "을 누르면 현재페이지번호에서 1을 더한 페이지로 이동한다. -->
                     <?php
                     }
                     else                                                                                                         /* $page_num이 $max_page_num보다 작지않을때에는 아래조건을 실행한다. */
                     {
                     ?>
-                        <a href='to_do_list.php?page_num=<?php echo $page_num  ?>'class="page_button">></a>                     <!-- "  >  "을 눌러도 현재페이지에 머무른다. -->
+                        <a href='to_do_list.php?page_num=<?php echo $page_num  ?>'class="page_button"> > </a>                     <!-- "  >  "을 눌러도 현재페이지에 머무른다. -->
                     <?php
                     }
                     ?>
