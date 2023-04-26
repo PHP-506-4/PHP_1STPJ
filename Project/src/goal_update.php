@@ -6,17 +6,17 @@ define( "PROFILE", SRC_ROOT."profile_to_do_list.php" );
 define( "FOOTER", SRC_ROOT."footer_to_do_list.php");
 
 include_once( URL_DB );
-$rqt_mtd = $_SERVER["REQUEST_METHOD"];
+$rqt_mtd = $_SERVER["REQUEST_METHOD"]; // POST 방식 OR GET 방식인지 체크
 
-if ($rqt_mtd === "POST") {
+if ($rqt_mtd === "POST") {             // post 방식일때
     $arr_post = $_POST;
-    update_goal($arr_post);
-    header("Location: to_do_list.php");
+    update_goal($arr_post);                 // form 방식으로 받은 값 업데이트
+    header("Location: to_do_list.php");     // 리스트 페이지로 이동후 종료
     exit();
 }
 else
 {
-    $result = select_goal_info();
+    $result = select_goal_info();       // 목표 값을 불러 오기 위해 사용
 }
 
 ?>
@@ -45,8 +45,8 @@ else
                 <input type="date" name="goal_date" id="goal_date" value="<?php echo $result["goal_date"]?>">
                 <br>
                 <div class="buttons">
-                    <button type="submit">수정</button>
-                    <a href="to_do_list.php">취소</a>
+                    <button type="submit">수정</button>     <!-- 수정 버튼 누를시 POST 로 저장 -->
+                    <a href="to_do_list.php">취소</a>       <!-- 리스트 페이지 이동 -->
                 </div>
             </form>
         </div>
