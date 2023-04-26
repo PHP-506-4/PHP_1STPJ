@@ -8,7 +8,7 @@
 
     $arr_get = $_GET; // GET Request Parameter 획득
 
-    $result_info = ( select_list_no($arr_get["list_no"]) ); // DB에서 리스트 상세 정보 획득
+    $result_info = ( select_list_no($arr_get["list_no"]) ); // GET 에서 받은 정보(list_no)로 DB에서 리스트 상세 정보 획득
 
 ?>
 <!DOCTYPE html>
@@ -48,21 +48,21 @@
                 <!-- 수행완료 / 취소 버튼 -->
                 <div class="con_btn">
                     <?php
-                    $comp_flg = $result_info["list_comp_flg"];
+                    $comp_flg = $result_info["list_comp_flg"]; // 수행완료 여부 확인하기 위해 리스트 상세 정보 중 "list_comp_flg"를 가져온다
                     if ( $comp_flg === '0' )
                     {?>
-                        <a href="update_comp_flg.php?list_no=<?php echo $result_info["list_no"];?>" class="btn_chk">수행완료</a> <!-- 수행완료 아닐땐 수행완료 버튼 -->
+                        <a href="update_comp_flg.php?list_no=<?php echo $result_info["list_no"];?>" class="btn_chk">수행완료</a> <!-- 수행완료 아닐땐 수행완료 버튼 출력 -->
                         <?php
                     }
                     else
                     {?>
-                        <a href="update_comp_flg.php?list_no=<?php echo $result_info["list_no"];?>" class="btn_chk">수행취소</a> <!-- 수행완료 일땐 수행취소 버튼 -->
+                        <a href="update_comp_flg.php?list_no=<?php echo $result_info["list_no"];?>" class="btn_chk">수행취소</a> <!-- 수행완료 일땐 수행취소 버튼 출력 -->
                     
                     <?php
                     }
                     ?>
-                    <a href="update_to_do_list.php?list_no=<?php echo $result_info["list_no"];?>" class="btn1">수정</a>
-                    <a href="to_do_list.php" class="btn2">리스트로</a>
+                    <a href="update_to_do_list.php?list_no=<?php echo $result_info["list_no"];?>" class="btn1">수정</a> <!-- 수정 페이지로 이동 -->
+                    <a href="to_do_list.php" class="btn2">리스트로</a> <!-- 리스트 페이지로 이동 -->
                 </div>
             </div>
         </div>
