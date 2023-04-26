@@ -265,7 +265,7 @@
     // 함수명       : insert_to_do_list
     // 기능         : 리스트의 값 추가
     // 파라미터     : array       $param_no
-    // 리턴값       :  //&&
+    // 리턴값       : INT/STRING    $result_cnt/ERRMSG
     //------------------------------------
     function insert_to_do_list_info( &$param_arr )
     {

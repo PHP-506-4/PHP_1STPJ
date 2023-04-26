@@ -19,12 +19,6 @@ body{
     position: relative;
 }
 
-/* .main{
-    margin: auto;           0421 del .con에 position: absolute 줘서 필요 없어짐 -KMJ
-    width: 60%;
-    height: 100vh;
-} */
-
 .header{
     margin-bottom: 15px;
     display: inline-block;
