@@ -76,14 +76,17 @@
     </div>
     <br>
     <div class="comp_graph">
-        <span>달성도 <?php echo $percent ?>%</span>
+        <!-- <span>달성도 <?php // echo $percent ?>%</span>
         <div class=graph>
-            <?php for ($i=0; $i <= $percent ; $i++)     // 달성도만큼 그래프 그리는 부분
-            { ?>
+            <?php //  for ($i=0; $i <= $percent ; $i++)     // 달성도만큼 그래프 그리는 부분
+            // { ?>
                 <div class=per></div>
             <?php
-            }?>
-        </div>
+            // }?>
+        </div> -->
+        <!-- html 자체에 그래프 바를 만들어주는 progress 태그를 사용하면 div여러번 만들 필요 x 그리고 달성도 0일때 바 안 참 -->
+        <label for="graph">달성도 <?php echo $percent; ?>%</label>
+        <progress class="graph" name="graph" max="100" value="<?php echo $percent ; ?>"></progress>
     </div>
     <a class="add_btn" href="insert_to_do_list.php">리스트추가</a>
 </body>
