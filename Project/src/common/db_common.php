@@ -399,23 +399,74 @@
         return $result[0]["cnt"];
     }
 
-    //--------------------------------------
-    // 함수명   : select_list_comp_cnt
-    // 기능     : 수행완료한 리스트의 갯수를 센다
-    // 파라미터	: 없음
-    // 리턴값	: array/STRING      $result[0]["cnt"]/ERRMSG
-    //--------------------------------------
-    function select_list_comp_cnt()
+    // //--------------------------------------
+    // // 함수명   : select_list_comp_cnt
+    // // 기능     : 수행완료한 리스트의 갯수를 센다
+    // // 파라미터	: 없음
+    // // 리턴값	: array/STRING      $result[0]["cnt"]/ERRMSG
+    // //--------------------------------------
+    // function select_list_comp_cnt()
+    // {
+    //     $sql =
+    //         " SELECT "
+    //         ."  COUNT(*) cnt "
+    //         ." FROM "
+    //         ."  to_do_list_info "
+    //         ." WHERE "
+    //         ."  list_comp_flg = '1' "
+    //         ;
+        
+    //     $conn = null;
+
+    //     try
+    //     {
+    //         db_conn( $conn );
+    //         $stmt = $conn->query( $sql );
+    //         $result = $stmt->fetchAll();
+    //     }
+    //     catch( Exception $e )
+    //     {
+    //         return $e->getMessage();
+    //     }
+    //     finally
+    //     {
+    //         $conn = null;
+    //     }
+
+    //     return $result[0]["cnt"];
+    // }
+
+    //  0427 del
+
+    // // ---------------------------------
+    // // 함수명	: comp_percent
+    // // 기능		: select_list_comp_cnt함수와 select_list_all_cnt 함수를 이용하여 리스트 달성률 계산하는 함수
+    // // 파라미터	: Array     &$param_arr
+    // // 리턴값	: INT       $result
+    // // ---------------------------------
+    // function comp_percent()
+    // {
+    //     $result = select_list_comp_cnt() / select_list_all_cnt() * 100 ;
+    //     $result = intval($result);
+    //     return $result;
+    // }
+    
+    //  0427 del
+
+    // ---------------------------------
+    // 함수명	: comp_percent
+    // 기능		: select_list_comp_cnt함수와 select_list_all_cnt 함수를 이용하여 리스트 달성률 계산하는 함수
+    // 파라미터	: Array     &$param_arr
+    // 리턴값	: INT       $result
+    // ---------------------------------
+    function comp_percent()
     {
         $sql =
             " SELECT "
-            ."  COUNT(*) cnt "
+            ."  FLOOR( SUM( CASE WHEN list_comp_flg = 1 THEN 1 ELSE 0 END ) / COUNT(*) * 100 ) comp_per "
             ." FROM "
-            ."  to_do_list_info "
-            ." WHERE "
-            ."  list_comp_flg = '1' "
-            ;
-        
+            ."  to_do_list_info ";
+
         $conn = null;
 
         try
@@ -433,21 +484,49 @@
             $conn = null;
         }
 
-        return $result[0]["cnt"];
+        return $result[0]["comp_per"];
     }
 
     // ---------------------------------
-    // 함수명	: comp_percent
+    // 함수명	: comp_check
     // 기능		: select_list_comp_cnt함수와 select_list_all_cnt 함수를 이용하여 리스트 달성률 계산하는 함수
     // 파라미터	: Array     &$param_arr
     // 리턴값	: INT       $result
     // ---------------------------------
-    function comp_percent()
-    {
-        $result = select_list_comp_cnt() / select_list_all_cnt() * 100 ;
-        $result = intval($result);
-        return $result;
-    }
+    // function comp_check( &$param_num )
+    // {
+    //     $sql =
+    //         " SELECT "
+    //         ."  COUNT(*) cnt "
+    //         ." FROM "
+    //         ."  to_do_list_info "
+    //         ." WHERE "
+    //         ."  list_comp_flg = :list_comp_flg "
+    //         ;
+    //     $arr_prepare =
+    //         array(
+    //             "list_comp_flg"     => $param_num
+    //         );
+    //     $conn = null;
+
+    //         try
+    //         {
+    //             db_conn( $conn );
+    //             $stmt = $conn->prepare( $sql );
+    //             $stmt->execute( $arr_prepare );
+    //             $result = $stmt->fetchAll();
+    //         }
+    //         catch( Exception $e )
+    //         {
+    //             return $e->getMessage();
+    //         }
+    //         finally
+    //         {
+    //             $conn = null;
+    //         }
+    
+    //         return $result[0]["cnt"];
+    // }
 
     // ---------------------------------
     // 함수명	: update_goal

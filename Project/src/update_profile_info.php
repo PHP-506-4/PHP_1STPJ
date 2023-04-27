@@ -10,9 +10,18 @@
 
 $rqt_mtd = $_SERVER["REQUEST_METHOD"];      // $_SERVER["REQUEST_METHOD"] 사용해서 데이터 post로 받아왔는지 확인
 
-if ($rqt_mtd === "POST") {                  // post 형식으로 값이 넘어왔을때
-    $arr_post = $_POST;
-    update_profile_info( $arr_post );
+if ($rqt_mtd === "POST")
+{                  // post 형식으로 값이 넘어왔을때
+    $arr = 
+        array(
+            "profile_name"  =>  $_POST['profile_name']
+            ,"profile_img"  =>  $_FILES['profile_img']['name']
+            );
+    $temp_f = $_FILES['profile_img']['tmp_name'];
+    $dir_f = "./img/".$_FILES['profile_img']['name'];
+    update_profile_info( $arr );
+    move_uploaded_file($temp_f, $dir_f);
+
     header("Location: to_do_list.php");
     exit();
 }
@@ -20,7 +29,6 @@ else
 {
     $result = select_profile_info();        // 값이 post형식으로 넘어가지 않으면 프로필 정보 출력하기 위해서 함수 사용
 }
-
 
 ?>
 <!DOCTYPE html>
@@ -40,7 +48,7 @@ else
         <?php include_once( PROFILE ) ?>
         <div class="con1">
             <h2>프로필 수정</h2>
-            <form action="" method="post">
+            <form action="" method="post" enctype="multipart/form-data">
                 <label for="profile_name">닉네임</label>
                 <input class="name" type="text" name="profile_name" id="profile_name" value="<?php echo $result['profile_name'] ?>" maxlength="6" placeholder="닉네임">
                 <br>

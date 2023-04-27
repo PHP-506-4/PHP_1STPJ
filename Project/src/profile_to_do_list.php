@@ -4,7 +4,21 @@
 
 <div class=p_con>
     <div class="pro_img"> <!-- 변수에 담긴 값을 이용해서 이미지와 프로필이름을 출력 -->
-        <img src="./img/<?php echo $p_result['profile_img']?>" alt="프로필">
+        <?php
+            if ( file_exists("./img/".$p_result['profile_img'] ) )
+            {
+            ?>
+                <img src="./img/<?php echo $p_result['profile_img']?>" alt="프로필">
+                
+                <?php
+            }
+            else
+            {
+                ?>
+                <img src="./img/profile.png" alt="프로필">
+            <?php
+            }
+        ?>
     </div>
     <br>
     <span><?php echo $p_result['profile_name'] ?></span>
