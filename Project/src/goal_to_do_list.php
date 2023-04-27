@@ -69,7 +69,7 @@
                 $result_d = substr( $goal_date, 5 );?>
             <span class=d_past><?php echo $g_title?></span>
             <span class="bar"> | </span>
-            <span class=d_past><?php echo $result_d?></span>
+            <span ><?php echo $result_d?></span>
         <?php
             }?>
     <a class="edit_btn" href="goal_update.php">EDIT</a>
