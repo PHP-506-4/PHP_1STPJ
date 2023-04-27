@@ -55,7 +55,7 @@ else
         <div class="update_list_ti">
           <!-- 제목 -->
           <label for="title">제목 </label>
-          <input type="text" name="list_title" id="title" value="<?php echo $result_info["list_title"]?>" required placeholder="제목" autofocus>
+          <input type="text" name="list_title" id="title" value="<?php echo $result_info["list_title"]?>" required placeholder="제목" autofocus autocomplete="off" spellcheck="false">
         </div>
         <div class="update_time">
           <!-- 시작 시간 -->
@@ -70,7 +70,7 @@ else
         <div class="update_memo">
           <!-- 메모 -->
           <label for="memo">메모 :</label>
-          <textarea name="list_memo" id="memo" cols="30" rows="10" placeholder="메모" ><?php echo $result_info["list_memo"]?></textarea>
+          <textarea name="list_memo" id="memo" cols="30" rows="10" placeholder="메모" spellcheck="false" ><?php echo $result_info["list_memo"]?></textarea>
         </div>
         <div class="update_radio">
           <!-- 라디오 버튼 --> <!-- 이미 완료 된 리스트일 경우 완료에 체크 돼있음, 미완료 리스트일 경우 미완료에 체크 돼있음 -->
