@@ -450,12 +450,12 @@
     //     $result = intval($result);
     //     return $result;
     // }
-    
+
     //  0427 del
 
     // ---------------------------------
     // 함수명	: comp_percent
-    // 기능		: select_list_comp_cnt함수와 select_list_all_cnt 함수를 이용하여 리스트 달성률 계산하는 함수
+    // 기능		: 달성도 계산하는 함수
     // 파라미터	: Array     &$param_arr
     // 리턴값	: INT       $result
     // ---------------------------------
