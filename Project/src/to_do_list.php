@@ -69,17 +69,19 @@ $result_paging = select_list_info( $arr_prepare ); /* 쿼리에 어레이를 요
                             {
                             ?>
                                 <img src="./img/check.png" alt="체크 안함">
+                                <div class="title"><?php echo $val["list_title"]?></div>
                             <?php
                             }
                             else                                                        /*$comp_flg에 '0'이 아닐경우 아래조건(체크한 이미지를 입력)을 실행한다. */
                             {
                             ?>
                                 <img src="./img/checked.png" alt="체크 함">
+                                <div class="title_past"><?php echo $val["list_title"]?></div>
                             <?php
                             }                                                           /* -------------------------------------------------- */
                             ?>                                                          
                             
-                            <div class="title"><?php echo $val["list_title"]?></div>        <!-- 제목출력 -->
+                                    <!-- 제목출력 -->
                             <div class="time">                                                                                      
                                 <?php                                                                                                   /* -----------------시간 표시여부를 정하는 if문------------- */
                                 if($val["list_start_time"]!== "" && $val["list_start_minute"]!== "")                                    /* $val["list_start_time"], $val["list_start_minute"]에 들어있는 값이 빈문자열이면 아래 조건을 표시 */

@@ -16,8 +16,12 @@
 .list:hover {
     background-color: #adc3db;
 }
-.title{
+.title, .title_past{
     width: 300px;
+}
+.title_past{
+    color: rgb(97, 97, 97);
+    text-decoration: line-through;
 }
 .time{
     
