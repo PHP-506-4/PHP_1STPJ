@@ -43,7 +43,7 @@
             <form method="post" action="insert_to_do_list.php">                                                                             <!-- input 값을 POST방식으로 전달 -->
                 <!-- 게시글 번호(히든), 게시글 제목 -->
                 <!-- <input type="hidden" name="list_no" class="list_no">       0427 list_no 필요없어서 삭제 -->
-                <input type="text" name="list_title" class="list_title" placeholder="제목" required autofocus>
+                <input type="text" name="list_title" class="list_title" placeholder="제목" required autofocus autocomplete="off" spellcheck="false">
                 <br>
                 <div class="con2">
                     <div class=con_start_time>
@@ -60,7 +60,7 @@
                     </div>
                 </div>
                 <!-- 리스트 메모 -->
-                <textarea name="list_memo" class="list_memo" placeholder="메모"></textarea>
+                <textarea name="list_memo" class="list_memo" placeholder="메모" spellcheck="false"></textarea>
                 <br>
                 <div class="con_btn">
                 <!-- 추가, 취소 버튼 -->
