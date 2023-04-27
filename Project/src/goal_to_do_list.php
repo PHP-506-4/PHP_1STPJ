@@ -35,7 +35,7 @@
             {
                 $result_d = "D-DAY";
                 ?>
-                <span class=d_day><?php echo $g_title?></span>
+                <span class=d_day id="title"><?php echo $g_title?></span>
                 <span class="bar"> | </span>
                 <span class=d_day><?php echo $result_d?></span>
         <?php }
@@ -43,7 +43,7 @@
             {
                 $result_d = "D-".$d_day;
                 ?>
-            <span class=d_day><?php echo $g_title?></span>
+            <span class=d_day id="title"><?php echo $g_title?></span>
             <span class="bar"> | </span>
             <span class=d_day><?php echo $result_d?></span>
             <?php
@@ -52,7 +52,7 @@
             {
                 $result_d = "D-".$d_day;
                 ?>
-                <span><?php echo $g_title?></span>
+                <span id="title"><?php echo $g_title?></span>
                 <span class="bar"> | </span>
                 <span><?php echo $result_d?></span>
                 <?php
@@ -67,7 +67,7 @@
             else                                                   // D-DAY 지났을 때 월-일만 출력
             {
                 $result_d = substr( $goal_date, 5 );?>
-            <span class=d_past><?php echo $g_title?></span>
+            <span class=d_past id="title"><?php echo $g_title?></span>
             <span class="bar"> | </span>
             <span ><?php echo $result_d?></span>
         <?php
