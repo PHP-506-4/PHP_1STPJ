@@ -16,6 +16,17 @@ if($http_method === "GET") // GET값 받은거
     $list_no = $_GET["list_no"]; // 받아온 GET 값 중에 "list_no" key값이 있으면,  key값이 "list_no" 인 value 값을 변수에 저장
   }
   $result_info = select_list_no( $list_no ); // list_no에 해당하는 정보를 가져와서 변수에 저장
+  // 이하 if문 0427 추가
+  $check="";
+  $check2="";
+    if($result_info["list_comp_flg"] === "1") 
+  {
+    $check = "checked";
+  }
+  else
+  { 
+    $check2 = "checked";
+  }
 }
 else
 {
@@ -74,9 +85,11 @@ else
         </div>
         <div class="update_radio">
           <!-- 라디오 버튼 --> <!-- 이미 완료 된 리스트일 경우 완료에 체크 돼있음, 미완료 리스트일 경우 미완료에 체크 돼있음 -->
-          <input type="radio" name="list_comp_flg" id="done" value=1 <?php if($result_info["list_comp_flg"] === "1") { echo "checked"; }?>>
+          <!-- <input type="radio" name="list_comp_flg" id="done" value=1 <?php //if($result_info["list_comp_flg"] === "1") { echo "checked"; }?>> --> <!-- 0427 get에 if문 추가로 수정 -->
+          <input type="radio" name="list_comp_flg" id="done" value=1 <?php echo $check;?>>
           <label for= "done">완료</label>
-          <input type="radio" name="list_comp_flg" id="yet" value=0  <?php if($result_info["list_comp_flg"] === "0") { echo "checked"; }?>>
+          <!-- <input type="radio" name="list_comp_flg" id="yet" value=0  <?php //if($result_info["list_comp_flg"] === "0") { echo "checked"; }?>> --> <!-- 0427 get에 if문 추가로 수정 -->
+          <input type="radio" name="list_comp_flg" id="yet" value=0  <?php echo $check2;?>>
           <label for="yet">미완료</label>
         </div>
         <!-- 버튼들 -->
