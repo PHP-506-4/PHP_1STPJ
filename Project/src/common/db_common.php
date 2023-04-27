@@ -456,8 +456,8 @@
     // ---------------------------------
     // 함수명	: comp_percent
     // 기능		: 달성도 계산하는 함수
-    // 파라미터	: Array     &$param_arr
-    // 리턴값	: INT       $result
+    // 파라미터	: 없음
+    // 리턴값	: INT/STRING       $result/ERRMSG
     // ---------------------------------
     function comp_percent()
     {
