@@ -71,12 +71,12 @@ else
         <div class="update_time">
           <!-- 시작 시간 -->
           <label for="start_time">시작 시간</label> <!-- min, max값 적용 -->
-          <input  type="number" name="list_start_time" id="start_time" min=00 max=23 value="<?php echo $result_info['list_start_time']?>"> :
-          <input  type="number" name="list_start_minute" id="start_min" min=00 max=59 value="<?php echo $result_info['list_start_minute']?>">
+          <input  type="number" name="list_start_time" id="start_time" min=00 max=23 autocomplete="off" value="<?php echo $result_info['list_start_time']?>"> :
+          <input  type="number" name="list_start_minute" id="start_min" min=00 max=59 autocomplete="off" value="<?php echo $result_info['list_start_minute']?>">
           <!-- 종료 시간 -->
           <label for="end_time">종료 시간</label>
-          <input type="number" name="list_end_time" id="end_time" min=00 max=23 value="<?php echo $result_info['list_end_time']?>"> :
-          <input type="number" name="list_end_minute" id="end_min" min=00 max=59 value="<?php echo $result_info['list_end_minute']?>">
+          <input type="number" name="list_end_time" id="end_time" min=00 max=23 autocomplete="off" value="<?php echo $result_info['list_end_time']?>"> :
+          <input type="number" name="list_end_minute" id="end_min" min=00 max=59 autocomplete="off" value="<?php echo $result_info['list_end_minute']?>">
         </div>
         <div class="update_memo">
           <!-- 메모 -->
